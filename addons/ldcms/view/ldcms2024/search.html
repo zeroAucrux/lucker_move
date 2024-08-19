@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {include file="common" /}
+  </head>
+
+  <body>
+    <!-- top -->
+    {include file="head" /}
+    <!-- top end -->
+
+    <!-- banner -->
+    <div class="banner">
+      <div class="neibanner">
+        <img src="/assets/addons/ldcms/images/banner.jpg" alt="搜索结果">
+        <div class="neibannerdesc flexrow">
+          <h2>搜索结果</h2>
+        </div>
+      </div>
+    </div>
+    <!-- banner end -->
+
+    <!-- 内页导航 -->
+    <section class="neinav">
+      <div class="con1400">
+        <div class="neinav_item ">
+          <ul class="flexrow">
+            {ld:nav}
+            <li class="{if $category['id']==$item['id']} active {/if}">
+              <a href="{$item.url}" title="{$item.name}">{$item.name}</a>
+            </li>
+            {/ld:nav}
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- 内页导航 end -->
+
+    <!-- 主体 -->
+    <section class="neimain">
+      <div class="newslistp">
+        <div class="con1400">
+          <div class="newslistp_bot searchpage container">
+            <ul class="row">
+              {ld:search  limit='12'   page='true'}
+              <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <a href="{$item.url}" title="{$item.title}">
+                  <div class="newslistp_botimg">
+                    <img src="{$item.image}" alt="{$item.title}">
+                  </div>
+                  <div class="newslistp_botdes search_pdesc flexrow">
+                    <h3>{$item.title|ld_str_cut=30}</h3>
+                    <p>阅读全文 ></p>
+                  </div>
+                </a>
+              </li>
+              {/ld:search}
+            </ul>
+          </div>
+          <div class="newspage">
+            {$pages} 
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 主体 end -->
+
+    <!-- 底部表单 -->
+    {include file="footmess" /}
+    <!-- 底部表单 end -->
+
+    <!-- 底部导航 -->
+    {include file="foot" /}
+    <!-- 底部导航 end -->
+
+    <!-- 公用js -->
+    {include file="footjs" /}
+
+  </body>
+
+</html>

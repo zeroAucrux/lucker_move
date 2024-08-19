@@ -1,0 +1,45 @@
+{extend name="base" /} {block name="main"}
+<link href="{ld:src src='fxg/css/contact.css?'}" rel="stylesheet" />
+<div class="hero_area jiuan-top">
+    <div class="hero_bg_box">
+        <img src="__ADDON__/fxg/images/hero-bg.jpg" alt="generator" />
+    </div>
+</div>
+
+<div class="service-banner service-bg about-banner-img">
+    <div class="container py-5">
+        <h1 class="display-4 text-white mb-3 animated slideInDown">
+            {$category.name}
+        </h1>
+        <p class="sub-title-cont text-white">{$category.subname}</p>
+    </div>
+</div>
+
+<section class="about_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="detail-box pr-md-2">
+                    <div class="heading_container mb-4">
+                        <h2 class="">{$content.title}</h2>
+                    </div>
+                    <div class="detail_p_mt">{$content.content}</div>
+        <!--             <a href="http://www.jiuangenerator.com" class="">
+                        Read More
+                    </a> -->
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="img-box">
+                    <img
+                        src="__ADDON__/fxg/images/about-img.jpg"
+                        class="box_img"
+                        alt="about img"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{/block}

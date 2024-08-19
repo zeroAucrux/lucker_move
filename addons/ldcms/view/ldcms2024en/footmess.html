@@ -1,0 +1,21 @@
+<section class="idx_footmess animate"
+data-animate="fadeInUp" data-duration="1.5s" data-delay="0.1s">
+      <div class="con1400">
+        {ld:sort cid="198"}
+        <div class="idx_ftitles">
+          <h3>{$item.des1}</h3>
+          <p>{$item.des2}</p>
+        </div>
+        {/ld:sort}
+        <div class="idx_fmess">
+          <form class="idx_fform flexrow"
+            action="{:addon_url('ldcms/diyform/message')}" method="post">
+            <input type="text" name="uname" placeholder="Your Name">
+            <input type="text" name="mobile" placeholder="Your Phone">
+            <input class="idx_fform3" type="text" name="remark" placeholder="Your Message ">
+            {:token()}
+            <button type="submit">Submit Now</button>
+          </form>
+        </div>
+      </div>
+    </section>

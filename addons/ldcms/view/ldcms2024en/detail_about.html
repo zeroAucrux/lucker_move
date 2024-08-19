@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {include file="common" /}
+  </head>
+
+  <body>
+    <!-- top -->
+    {include file="head" /}
+    <!-- top end -->
+
+    <!-- banner -->
+    <div class="banner">
+    {include file="neibanner" /}
+    </div>
+    <!-- banner end -->
+
+    <!-- 内页导航 -->
+    <section class="neinav">
+      <div class="con1400">
+        {include file="neiernav" /}
+      </div>
+    </section>
+    <!-- 内页导航 end -->
+
+    <!-- 主体 -->
+    <section class="neimain">
+      <div class="abouttop">
+        {ld:content cid="209"}
+        <div class="container con1400 animate"
+        data-animate="fadeInUp" data-duration="1.5s" data-delay="0.1s">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <div class="aboutt_l">
+                <img src="{$content.image}" alt="{$content.title}">
+              </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+              <div class="aboutt_r">
+                <h3>{$content.title}</h3>
+                <p>
+                  {$content.content}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/ld:content}
+      </div>
+
+
+      <div class="about_qywh" id="abqywh">
+        <div class="slideTxtBox">
+          <div class="hd">
+            <ul class="con1400">
+              {ld:slide name="culture" alias="vo"}
+              <li class=" animate"
+              data-animate="fadeIn" data-duration="1.5s" data-delay="0.1s">
+                <div class="about_qywhd_desc">
+                  <h3>{$vo.title}</h3>
+                  <p>{$vo.content}</p>
+                </div>
+                <div class="about_qywhd_line"></div>
+              </li>
+              {/ld:slide}
+            </ul>
+          </div>
+          <div class="bd">
+            {ld:slide name="culture" alias="vo"}
+            <ul>
+              <li>
+                <img src="{$vo.image}" alt="{$vo.title}">
+              </li>
+            </ul>
+            {/ld:slide}
+          </div>
+        </div>
+        <script
+          type="text/javascript">jQuery(".slideTxtBox").slide({autoPlay:false,delayTime:'1500'});</script>
+      </div>
+
+      <div class="about_hz" id="abhzkh">
+        <div class="con1400">
+          {ld:sort cid="202"}
+          <div class="about_hz_tit">
+            <h3>{$item.name}</h3>
+          </div>
+          {/ld:sort}
+          <div class="about_hz_item animate"
+          data-animate="fadeInUp" data-duration="1.5s" data-delay="0.1s">
+            <!-- Swiper -->
+            <div class="swiper-container idxkh_swiper">
+              <div class="swiper-wrapper">
+                {ld:list cid="202" limit='18' ext='content' }
+                <div class="swiper-slide">
+                  <div class="idxkh_simg">
+                    <img src="{$item.image}" alt="{$item.title}"
+                      title="{$item.title}">
+                  </div>
+                </div>
+                {/ld:list}
+              </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination idxkh_spagination"></div>
+
+            <!-- Initialize Swiper -->
+            <script>
+            var idxkh_swiper = new Swiper('.idxkh_swiper', {
+              slidesPerView: 6,
+              slidesPerColumn: 2,
+              spaceBetween: 30,
+              // loop: true,
+              pagination: {
+                el: '.idxkh_spagination',
+                clickable: true,
+              },
+
+              breakpoints: { 
+                320: {  //当屏幕宽度大于等于320
+                  slidesPerView: 2,
+                  spaceBetween: 10
+                },
+                768: {  //当屏幕宽度大于等于768 
+                  slidesPerView: 4,
+                  spaceBetween: 20
+                },
+                1280: {  //当屏幕宽度大于等于1280
+                  slidesPerView: 6,
+                  spaceBetween: 30
+                }
+              },
+            });
+          </script>
+          </div>
+        </div>
+      </div>
+
+      <div class="about_his" id="abfzlc">
+        <div class="con1400">
+          <div class="about_hisitem animate"
+          data-animate="fadeInUp" data-duration="1.5s" data-delay="0.1s">
+            {ld:sort cid="211"}
+            <div class="about_hisitem_t">
+              <h3>{$item.name}</h3>
+            </div>
+            {/ld:sort}
+            <!-- Swiper -->
+            <div class="swiper-container gallery-top abouthis_top">
+              <div class="swiper-wrapper">
+                {ld:list cid="211" limit='8' ext='content' }
+                <div class="swiper-slide" >
+                  <div class="about_histop flexrow">
+                    <div class="abouthist_l">
+                      <h3>{$item.title}</h3>
+                      <p>
+                        {$item.content}
+                      </p>
+                    </div>
+                    <div class="abouthist_r">
+                      <img src="{$item.image}" alt="{$item.title}">
+                    </div>
+                  </div>
+                </div>
+                {/ld:list}
+              </div>
+            </div>
+            <div class="swiper-container gallery-thumbs abouthis_bot">
+              <div class="swiper-wrapper">
+                {ld:list cid="211" limit='8' ext='content' }
+                <div class="swiper-slide" >
+                  <div class="about_hisbot_c"></div>
+                  <div class="about_hisbot_y">
+                    <h4>{$item.title}</h4>
+                  </div>
+                </div>
+                {/ld:list}
+              </div>
+            </div>
+
+              <!-- Add Arrows -->
+              <div class="swiper-button-next swiper-button-white abouthist_next"></div>
+              <div class="swiper-button-prev swiper-button-white abouthist_prev"></div>
+
+            <!-- Initialize Swiper -->
+            <script>
+              var abouthis_bot = new Swiper('.abouthis_bot', {
+                spaceBetween: 10,
+                slidesPerView: 7,
+                // loop: true,
+                freeMode: true,
+                loopedSlides: 5, //looped slides should be the same
+                watchSlidesVisibility: true,
+                watchSlidesProgress: true,
+                breakpoints: { 
+                  320: {  //当屏幕宽度大于等于320
+                    slidesPerView: 3,
+                  },
+                  768: {  //当屏幕宽度大于等于768 
+                    slidesPerView: 5,
+                  },
+                  1280: {  //当屏幕宽度大于等于1280
+                    slidesPerView: 7,
+                  }
+                }
+              });
+              var abouthis_top = new Swiper('.abouthis_top', {
+                spaceBetween: 10,
+                // loop:true,
+                loopedSlides: 5, //looped slides should be the same
+                navigation: {
+                  nextEl: '.abouthist_next',
+                  prevEl: '.abouthist_prev',
+                },
+                thumbs: {
+                  swiper: abouthis_bot,
+                },
+              });
+            </script>
+          </div>
+        </div>
+
+        <!-- 历程横线 -->
+        <div class="about_hisline"></div>
+      </div>
+    </section>
+    <!-- 主体 end -->
+
+    <!-- 底部表单 -->
+    {include file="footmess" /} 
+    <!-- 底部表单 end -->
+
+    <!-- 底部导航 -->
+    {include file="foot" /} 
+    <!-- 底部导航 end -->
+
+    <!-- 公用js -->
+    {include file="footjs" /} 
+
+  </body>
+
+</html>

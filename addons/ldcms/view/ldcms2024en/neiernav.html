@@ -1,0 +1,18 @@
+<div class="neinav_item flexrow">
+          <ul class="flexrow">
+            {ld:nav pid="$topid"}
+            <li class="{if $category['id']==$item['id']} active {/if}">
+              <a href="{$item.url}" title="{$item.name}">{$item.name}</a>
+            </li>
+            {/ld:nav}
+          </ul>
+          <div class="casetop_r">
+            <p>
+              <a href="{:addon_url('ldcms/index/index')}">Home</a>  
+              {ld:position cid="$category['id']"}
+              >
+              <a href="{$item.url}">{$item.name}</a> 
+              {/ld:position}
+            </p>
+          </div>
+        </div>

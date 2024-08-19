@@ -1,0 +1,310 @@
+@charset "UTF-8";
+
+* {
+  font-family: "Microsoft YaHei", "微软雅黑", "黑体", "宋体", "Arial", sans-serif;
+  color: #333333;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* html,
+body {
+  overflow-x: hidden;
+} */
+
+:focus {
+  outline: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+img,
+button,
+dl,
+dt,
+dd,
+span {
+  transition: all .5s;
+  font-size: 14px;
+}
+
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dl,
+hr {
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+a {
+  color: #333333;
+}
+
+ul {
+  list-style: none;
+}
+
+ul:before,
+ul:after {
+  display: none;
+}
+
+input {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+textarea {
+  resize: none;
+}
+
+img {
+  max-width: 100%;
+  display: inline-block;
+}
+
+.container {
+  width: 1200px;
+  padding: 0px;
+}
+
+.con1400 {
+  width: 1400px;
+  margin: 0 auto;
+}
+
+.con1760 {
+  width: 1760px;
+  margin: 0 auto;
+}
+.con1600 {
+  width: 1600px;
+  margin: 0 auto;
+}
+.con1280 {
+  width: 1280px;
+  margin: 0 auto;
+}
+.con1200 {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix,
+.clear,
+.clearboth {
+  clear: both;
+}
+
+.flexrow {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
+.checkbox, .radio {
+  margin: 0px;
+}
+.nopadding {
+  padding: 0px;
+}
+
+input::placeholder {
+  font-size: 16px;
+  font-weight: normal;
+  color: #999999;
+}
+
+input::-webkit-input-placeholder,
+input:-moz-placeholder,
+input:-ms-input-placeholder,
+input::-moz-placeholder {
+  font-size: 16px;
+  font-weight: normal;
+  color: #999999;
+}
+
+textarea::placeholder {
+  font-size: 16px;
+  font-weight: normal;
+  color: #999999;
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.idx_flexstart {
+  justify-content: flex-start;
+}
+
+/* css 动画 */
+@keyframes mymove {
+  0% {
+   height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
+}
+
+@keyframes runline {
+  0% {
+    width: 0px;
+  }
+
+  50% {
+    width: 50%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes runpao {
+  0% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: 20px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+
+@keyframes runfeng {
+  0% {
+    opacity:  0;
+  }
+  50% {
+    opacity:  1;
+  }
+  100% {
+    opacity:  0;
+  }
+}
+
+@keyframes p2desc {
+  0% {
+    margin-left: 0px;
+  }
+
+  50% {
+    margin-left: 50px;
+  }
+
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@keyframes bannersb {
+  0% {
+    top: 4px;
+  }
+  50% {
+    top: 10px;
+  }
+  100% {
+    top: 4px;
+  }
+}
+/* animation:mymove 5s infinite; */
+
+
+/* 特殊字体 */
+@font-face {
+  font-family: PoppinsRegular;
+  src: url('../fonts/Poppins-Regular.otf'),
+    url('../fonts/Poppins-Regular.otf');
+  /* IE9+,可以是具体的实际链接 */
+}
+@font-face {
+  font-family: PoppinsLight;
+  src: url('../fonts/Poppins-Light.ttf'),
+    url('../fonts/Poppins-Light.ttf');
+  /* IE9+,可以是具体的实际链接 */
+}
+@font-face {
+  font-family: Poppins;
+  src: url('../fonts/Poppins.ttf'),
+    url('../fonts/Poppins.ttf');
+  /* IE9+,可以是具体的实际链接 */
+}
+
+@media (max-width:1760px) {
+  .con1760,.con1600 {
+    width: 95%;
+  }
+}
+
+@media (max-width:1440px) {
+  .con1400 {
+    width: 95%;
+  }
+}
+
+@media (max-width:1300px) {
+  .con1280 ,.con1200 {
+    width: 96%;
+  }
+}

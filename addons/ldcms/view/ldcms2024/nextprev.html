@@ -1,0 +1,17 @@
+   <div class="newsde_lbot flexrow">
+              {ld:prev}
+              <div class="newdelb_l">
+                <p>上一篇：<a href="{$item.url}" title="{$item.title}"> {$item.title} </a></p>
+              </div>{else /} <div class="newdelb_l"><p>上一篇：没有了</p></div>
+              {/ld:prev}
+              {ld:sort cid="$category['id']"}
+              <div class="newdelb_m">
+                <a href="{$item.url}">返回列表</a>
+              </div>
+              {/ld:sort}
+              {ld:next}
+              <div class="newdelb_l newdelb_r">
+                <p>下一篇：<a href="{$item.url}" title="{$item.title}"> {$item.title} </a></p>
+              </div>{else /} <div class="newdelb_l newdelb_r"><p>下一篇：没有了</p></div>
+              {/ld:next}
+            </div>

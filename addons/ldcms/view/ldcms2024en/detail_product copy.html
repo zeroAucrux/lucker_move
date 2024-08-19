@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {include file="common" /}
+  </head>
+
+  <body>
+    <!-- top -->
+    {include file="head" /}
+    <!-- top end -->
+
+    <!-- banner -->
+    <div class="banner">
+      {include file="neibanner" /}
+    </div>
+    <!-- banner end -->
+
+    <!-- 主体 -->
+    <section class="neimain">
+      <div class="prodetail">
+        <div class="procontent_1">
+          <div class="con1400">
+            <div class="procon1_item flexrow">
+              <div class="procontent1_l">
+                <div class="swiper-container gallery-top">
+                  <div class="swiper-wrapper">
+                    {foreach :explode(',',$content.pics) as $pic}
+                    <div class="swiper-slide">
+                      <img src="{$pic}" alt="{$content.title}">
+                    </div>
+                    {/foreach}
+                  </div>
+                </div>
+                <div class="swiper-container gallery-thumbs">
+                  <div class="swiper-wrapper">
+                    {foreach :explode(',',$content.pics) as $pic}
+                    <div class="swiper-slide">
+                      <img src="{$pic}" alt="{$content.title}">
+                    </div>
+                    {/foreach}
+                  </div>
+                </div>
+
+                <script>
+                  var galleryThumbs = new Swiper('.gallery-thumbs', {
+                    spaceBetween: 10,
+                    slidesPerView: 4,
+                    // loop: true,
+                    freeMode: true,
+                    autoplay:true,
+                    loopedSlides: 5, //looped slides should be the same
+                    watchSlidesVisibility: true,
+                    watchSlidesProgress: true,
+                  });
+                  var galleryTop = new Swiper('.gallery-top', {
+                    spaceBetween: 10,
+                    // loop:true,
+                    autoplay:true,
+                    loopedSlides: 5, //looped slides should be the same
+                    navigation: {
+                      nextEl: '.swiper-button-next',
+                      prevEl: '.swiper-button-prev',
+                    },
+                    thumbs: {
+                      swiper: galleryThumbs,
+                    },
+                  });
+                </script>
+              </div>
+              <div class="procontent1_r">
+                <div class="procont_ltop">
+                  <h2>{$content.title}</h2>
+                  <p>{$content.subtitle}</p>
+                </div>
+                <div class="procont_lbot">
+                  <p>{$content.seo_description}</p>
+                </div>
+                <div class="procontent_zx">
+                  <a class="flexrow" href>
+                    <img src="__ADDON__/ldcms2024/images/zxzx.png" alt>
+                    <span>在线咨询</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="slideTxtBoxpro">
+          <div class="hd  ">
+            <div class="con1400 flexrow">
+              <div class="prode_topl">
+                <h3>{$content.title}</h3>
+              </div>
+              <ul><li>产品详情</li><li>产品参数</li><li>相关下载</li></ul>
+            </div>
+          </div>
+          <div class="bd con1400">
+            <ul>
+              <div class="prode_content animate"
+              data-animate="fadeInUp" data-duration="1.5s" data-delay="0.1s">
+                <div class="prode_contop">
+                  <h3>{$content.title}</h3>
+                  <p>{$content.content}</p>
+                </div>
+                <div class="prode_video">
+                  <video controls>
+                    <source src="{$content.subtitle}" type="video/mp4">
+                  </video>
+                </div>
+                <div class="prode_case">
+                  <div class="prode_contop">
+                    <h3>相关案例</h3>
+                  </div>
+                  <div class="prode_caselist">
+                    <ol class="flexrow">
+                      {ld:list cid='147' limit='3' ext='content' } 
+                      <li>
+                        <a href="{$item.url}" title="{$item.title}">
+                          <div class="prode_caselist_img">
+                            <img src="{$item.image}" alt="{$item.title}">
+                          </div>
+                          <div class="prode_caselist_text">
+                            <h4>{$item.title}</h4>
+                          </div>
+                        </a>
+                      </li>
+                      {/ld:list}
+                    </ol>
+                    {ld:sort cid="147"}
+                    <div class="prode_casemore">
+                      <a class="flexrow" href="{$item.url}">
+                        <span>了解更多</span>
+                        <i>></i>
+                      </a>
+                    </div>
+                    {/ld:sort}
+                  </div>
+                </div>
+              </div>
+            </ul>
+            <ul>
+              <div class="prode_cpcs  animate"
+              data-animate="fadeInUp" data-duration="1.5s" data-delay="0.1s">
+                <div class="pdp-table">
+                  {$content.cpcs}
+                </div>
+                <div class="prode_gzfw">
+                  <h3>工作范围</h3>
+                  <div class="prode_gzfw_item">
+                    {$content.gzfw}
+                  </div>
+                </div>
+              </div>
+            </ul>
+            <ul>
+              <div class="prode_down  animate"
+              data-animate="fadeInUp" data-duration="1.5s" data-delay="0.1s">
+                {ld:nav pid="166"}
+                <div class="prode_downlist">
+                  <div class="prode_downitem flexrow">
+                    <h3>{$item.name}</h3>
+                    <img src="__ADDON__/ldcms2024/images/prodown.png" alt>
+                  </div>
+                  <ul class="prode_downxl">
+                    {php}$condition="`extend`.`progl`=".$content['id'];{/php}
+                    {ld:list cid="$item['id']" limit='40' condition='$condition' ext='progl,downlinks' alias="dlist"}
+                    <li>
+                      <a class="flexrow" href="{$dlist.downlinks}" target="_blank">
+                        <p>{$dlist.title}</p>
+                        <img src="__ADDON__/ldcms2024/images/prodownico.png" alt>
+                      </a>
+                    </li>
+                    {/ld:list}
+                  </ul>
+                </div>
+                {/ld:nav}
+                <script>
+                  $(document).ready(function(){
+                    $(".prode_downitem").click(function(){
+                      $(this).toggleClass("active").parent('.prode_downlist').siblings('.prode_downlist').find('.prode_downitem').removeClass("active");  
+                      $(this).next(".prode_downxl").slideToggle().parent('.prode_downlist').siblings('.prode_downlist').find(".prode_downxl").slideUp();
+                    })
+                  })
+                </script>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <script
+          type="text/javascript">jQuery(".slideTxtBoxpro").slide({autoPlay:false,trigger:"click"});</script>
+      </div>
+    </section>
+    <!-- 主体 end -->
+
+    <!-- 底部表单 -->
+    {include file="footmess" /}
+    <!-- 底部表单 end -->
+
+    <!-- 底部导航 -->
+    {include file="foot" /}
+    <!-- 底部导航 end -->
+
+    <!-- 公用js -->
+    {include file="footjs" /}
+
+  </body>
+
+</html>

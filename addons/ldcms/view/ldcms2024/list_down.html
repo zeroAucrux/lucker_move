@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {include file="common" /}
+  </head>
+
+  <body>
+    <!-- top -->
+    {include file="head" /}
+    <!-- top end -->
+
+    <!-- banner -->
+    <div class="banner">
+      {include file="neibanner" /}
+    </div>
+    <!-- banner end -->
+
+     <!-- 内页导航 -->
+     <section class="neinav">
+      <div class="con1400">
+        {include file="neiernav" /}
+      </div>
+    </section>
+    <!-- 内页导航 end -->
+
+    <!-- 主体 -->
+    <section class="neimain">
+      <div class="prodetail">
+        <div class="slideTxtBoxpro">
+          <div class="bd con1400">
+            <ul>
+              <div class="prode_down animate"
+              data-animate="fadeInUp" data-duration="1.5s" data-delay="0.1s">
+                {ld:nav pid="166"}
+                <div class="prode_downlist">
+                  <div class="prode_downitem flexrow">
+                    <h3>{$item.name}</h3>
+                    <img src="__ADDON__/ldcms2024/images/prodown.png" alt>
+                  </div>
+                  <ul class="prode_downxl">
+                    {ld:list cid="$item['id']" limit="80" ext="downlinks" alias="dlist" }
+                    <li>
+                      <a class="flexrow" href="{$dlist.downlinks}" target="_blank" title="{$dlist.title}">
+                        <p>{$dlist.title}</p>
+                        <img src="__ADDON__/ldcms2024/images/prodownico.png" alt>
+                      </a>
+                    </li>
+                    {/ld:list}
+                  </ul>
+                </div>
+                {/ld:nav}
+                <script>
+                  $(document).ready(function(){
+                    $(".prode_downitem").click(function(){
+                      $(this).toggleClass("active").parent('.prode_downlist').siblings('.prode_downlist').find('.prode_downitem').removeClass("active");  
+                      $(this).next(".prode_downxl").slideToggle().parent('.prode_downlist').siblings('.prode_downlist').find(".prode_downxl").slideUp();
+                    })
+                  })
+                </script>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 主体 end -->
+
+    <!-- 底部表单 -->
+    {include file="footmess" /}
+    <!-- 底部表单 end -->
+
+    <!-- 底部导航 -->
+    {include file="foot" /}
+    <!-- 底部导航 end -->
+
+    <!-- 公用js -->
+    {include file="footjs" /}
+
+  </body>
+
+</html>

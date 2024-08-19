@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {include file="common" /}
+  </head>
+
+  <body>
+    <!-- top -->
+    {include file="head" /}
+    <!-- top end -->
+
+    <!-- banner -->
+    <div class="banner">
+      {include file="neibanner" /}
+    </div>
+    <!-- banner end -->
+
+    <!-- 内页导航 -->
+    <section class="neinav">
+      <div class="con1400">
+        {include file="neiernav" /}
+      </div>
+    </section>
+    <!-- 内页导航 end -->
+
+    <!-- 主体 -->
+    <section class="neimain">
+      <div class="con1400">
+        <div class="newsdetail flexrow">
+          <div class="newsde_l animate"
+          data-animate="fadeInLeft" data-duration="1.5s" data-delay="0.1s">
+            <h2>{$content.title}</h2>
+            <div class="newsde_ltime flexrow">
+              <div class="newsdel_left">
+                <p>
+                  {ld:sort cid="$category['id']"}
+                  <a href="{$item.url}">#{$item.name}</a>
+                  {/ld:sort}
+                  <span>·</span><i>{$content.show_time|ld_fdate='Y-m-d'}</i></p>
+              </div>
+              <div class="newsdel_right">
+                <a class="qrcode_ewm" href="javascript:;">
+                  <img src="__ADDON__/ldcms2024/images/newswxico.png" alt>
+                </a>
+                <div class="qrcode_ewmimg" id="qrcode"></div>
+                <a class="a-weibo" href="javascript:;">
+                  <img src="__ADDON__/ldcms2024/images/newsxlico.png" alt>
+                </a>
+              </div>
+            </div>
+            <div class="newsde_lcontent">
+              <p>
+                {$content.content}
+              </p>
+              {include file="detags" /}
+            </div>
+            {include file="nextprev" /}
+          </div>
+          <div class="newsde_r animate"
+          data-animate="fadeInRight" data-duration="1.5s" data-delay="0.1s">
+            <ul>
+              {ld:list limit='3' ext='content'}
+              <li>
+                <a href="{$item.url}" title="{$item.title}">
+                  <div class="newsde_rimg">
+                    <img src="{$item.image}" alt="{$item.title}">
+                  </div>
+                  <div class="newsde_rdesc">
+                    <h3>{$item.title}</h3>
+                    <p>{$item.show_time|ld_fdate='Y-m-d'}</p>
+                  </div>
+                </a>
+              </li>
+              {/ld:list}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 主体 end -->
+
+    <!-- 底部表单 -->
+    {include file="footmess" /}
+    <!-- 底部表单 end -->
+
+    <!-- 底部导航 -->
+    {include file="foot" /}
+    <!-- 底部导航 end -->
+
+    <!-- 公用js -->
+    {include file="pageshare" /}  
+    {include file="footjs-noani" /}
+    <script>
+      $(document).ready(function(){
+        $('.qrcode_ewm').click(function(){
+          // 在此处输入 layer 的任意代码
+          layer.open({
+            type: 1,
+            closeBtn: 0,
+            skin: 'layui-layer-lan',
+            title: '微信分享扫描二维码',
+            shadeClose: true, // 点击遮罩关闭层
+            content: $('#qrcode'), // 捕获的元素
+            end: function(){
+              $('.qrcode_ewmimg').css('display','none');
+            }
+          });
+        })
+      })
+    </script>
+
+  </body>
+
+</html>

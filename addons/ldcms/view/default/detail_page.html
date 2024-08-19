@@ -1,0 +1,25 @@
+{extend name="base" /}
+{block name="main"}
+<div class="container">
+    <div class="main w1200">
+        <div class="article w1">
+            <div class="article-box">
+                <header class="article-top">
+                    <h1 class="article-tit">{$category.name}</h1>
+                </header>
+                {ld:sort pid="$topid"}
+                <li class="{if $item['id']==$category['id']}active{/if}">
+                    <a href="{$item.url}">{$item.name}</a>
+                </li>
+                {/ld:sort}
+                <article class="article-main">
+                    {$content.content}
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.header').removeClass('opaque').addClass('noOpaque')
+</script>
+{/block}

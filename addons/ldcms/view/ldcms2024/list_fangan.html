@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {include file="common" /}
+  </head>
+
+  <body>
+    <!-- top -->
+    {include file="head" /}
+    <!-- top end -->
+
+    <!-- banner -->
+    <div class="banner">
+      {include file="neibanner" /}
+    </div>
+    <!-- banner end -->
+
+    <!-- 内页导航 -->
+    <section class="neinav">
+      <div class="con1400">
+        {include file="neiernav" /}
+      </div>
+    </section>
+    <!-- 内页导航 end -->
+
+    <!-- 主体 -->
+    <section class="neimain">
+      <div class="resppage">
+        <div class="con1400">
+          <div class="resp_item">
+            <ul class="flexrow">
+              {ld:list cid='188' limit='4' ext='content'}
+              <li class=" animate"
+              data-animate="zoomIn" data-duration="1.5s" data-delay="0.{$i}s">
+                <div class="resp_liimg">
+                  <img src="{$item.image}" alt="{$item.title}">
+                </div>
+                <div class="resp_lidesc flexrow">
+                  <div class="resp_lidesc_item">
+                    <h3>{$item.title}</h3>
+                    <p>{$item.seo_description}</p>
+                  </div>
+                </div>
+              </li>
+              {/ld:list}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="respnews" id="fashzr">
+        <div class="con1400">
+          {ld:sort cid="189"}
+          <div class="respnews_t">
+            <h2>{$item.des1}</h2>
+            <p>{$item.des2}</p>
+          </div>
+          {/ld:sort}
+          <div class="respnews_list animate"
+          data-animate="fadeInUp" data-duration="1.5s" data-delay="0.1s">
+            <!-- Swiper -->
+            <div class="swiper-container respnewsswiper">
+              <div class="swiper-wrapper">
+                {ld:list cid='189' limit='8'  ext='content' }
+                <div class="swiper-slide">
+                  <a class="respnews_liitem flexrow" href="{$item.url}" title="{$item.title}">
+                    <div class="respnews_lil">
+                      <h3>{$item.title}</h3>
+                      <p>
+                        {$item.seo_description|ld_str_cut=70}
+                      </p>
+                      <span>{$item.show_time|ld_fdate='Y-m-d'}</span>
+                    </div>
+                    <div class="respnews_lir">
+                      <img src="{$item.image}" alt="{$item.title}">
+                    </div>
+                  </a>
+                </div>
+                {/ld:list}
+              </div>
+              <!-- Add Arrows -->
+              <div class="swiper-button-next respnewsnext"></div>
+              <div class="swiper-button-prev respnewsprev"></div>
+            </div>
+
+            <!-- Initialize Swiper -->
+            <script>
+              var respnewsswiper = new Swiper('.respnewsswiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                navigation: {
+                  nextEl: '.respnewsnext',
+                  prevEl: '.respnewsprev',
+                },
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 主体 end -->
+
+    <!-- 底部表单 -->
+    {include file="footmess" /}
+    <!-- 底部表单 end -->
+
+    <!-- 底部导航 -->
+    {include file="foot" /}
+    <!-- 底部导航 end -->
+
+    <!-- 公用js -->
+    {include file="footjs" /}
+
+  </body>
+
+</html>

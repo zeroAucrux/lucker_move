@@ -1,0 +1,64 @@
+<!--
+ * @Email: allen0101stanton@outlook.com
+ * @Author: Eric
+ * @Description: 
+-->
+{extend name="base" /} {block name="main"}
+<link href="{ld:src src='fxg/css/contact.css?'}" rel="stylesheet" />
+<div class="hero_area jiuan-top">
+    <div class="hero_bg_box">
+        <img src="__ADDON__/fxg/images/hero-bg.jpg" alt="generator" />
+    </div>
+</div>
+
+<div class="service-banner service-bg contact-banner-img">
+    <div class="container py-5">
+        <h1 class="display-4 text-white mb-3 animated slideInDown">{$category.name}</h1>
+        <p class="sub-title-cont text-white">{$category.subname}</p>
+    </div>
+</div>
+<section class="contact_section">
+    <div class="container">
+
+        <div class="contact-top section-gap">
+            <div class="wrapper">
+              <div class="d-grid cont-main-top">
+                <!-- contact form -->
+                <div class="contacts12-main">
+                  <h3 class="title-main-cont">{$category.name}</h3>
+                  <p class="sub-title-cont">{$content.test}</p>
+                  <form action="{:addon_url('ldcms/diyform/message')}" method="post" class="main-input">
+                    <div class="top-inputs d-grid">
+                      <input type="text" placeholder="{:__('uname')}" name="uname" size="28">
+                      <input type="email" name="email"  placeholder="{:__('Email')}" size="28">
+                    </div>
+                    <input type="text" placeholder="{:__('Subject')}" name="subject" id="w3Subject" size="28">
+                    <textarea placeholder="{:__('content')}" name="remark" size="100"></textarea>
+                    <div class="text-right">
+                      {:token()}
+                      <button type="submit" class="btn btn-contact">{:__('Submit')}</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- //contact form -->
+                <!-- contact address -->
+                <div class="contact">
+                  <div class="cont-subs">
+                    {$content.content}
+                  </div>
+                </div>
+                <!-- //contact address -->
+              </div>
+            </div>
+            <!-- map -->
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d284331.5932592149!2d112.8926215181946!3d23.294260351884386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3402f20e50d634f9%3A0xe7ad1d3fdea494b5!2z5Lit5ZyL5buj5p2x55yB5buj5bee5biC6Iqx6YO95Y2A5LiJ6IGv5p2RIOmCruaUv-e8lueggTogNTEwODIw!5e0!3m2!1szh-TW!2s!4v1723626954948!5m2!1szh-TW!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <!-- //map -->
+          </div>
+        
+       
+    </div>
+</section>
+
+{/block}

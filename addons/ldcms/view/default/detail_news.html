@@ -1,0 +1,48 @@
+{extend name="base" /}
+{block name="main"}
+<div class="container">
+    <div class="main w1200">
+        <div class="article w1">
+            <div class="archive-top">
+                <div class="archive-title">
+                    <h1 itemprop="headline">{$content.title}</h1>
+                    <span></span>
+                </div>
+            </div>
+            <p>
+                {:__('Position')}：<a href="{:addon_url('ldcms/index/index')}">{:__('Home')}</a>
+                {ld:position cid="$category['id']"}
+                / <a href="{$item.url}">{$item.name}</a>
+                {/ld:position}
+            </p>
+            <div class="article-box">
+                <header class="article-top">
+                    <div class="article-mt">
+                        <span>
+                            <i class="fa fa-list-alt"></i>
+                            {ld:sort cid="$category['id']"}<a href="{$item.url}">{$item.name}</a>{/ld:sort}
+                        </span>
+                        <span><i class="fa fa-user"></i>{$content.author}</span>
+                        <span><i class="fa fa-clock-o"></i>{$content.show_time}</span>
+                        <span><i class="fa fa-eye"></i>{$content.visits}</span>
+                    </div>
+                </header>
+                <article class="article-main">
+                    {$content.content}
+                </article>
+            </div>
+            <div class="prev">
+                {:__('Previous')}： {ld:prev} <a href="{$item.url}"> {$item.title} </a> {else /} {:__('No more')}{/ld:prev}
+            </div>
+            <div class="next">
+                {:__('Next')}： {ld:next}<a href="{$item.url}"> {$item.title} </a> {else /} {:__('No more')} {/ld:next}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('.header').removeClass('opaque').addClass('noOpaque')
+</script>
+{/block}

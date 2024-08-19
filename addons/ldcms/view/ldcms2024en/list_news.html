@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {include file="common" /}
+  </head>
+
+  <body>
+    <!-- top -->
+    {include file="head" /}
+    <!-- top end -->
+
+    <!-- banner -->
+    <div class="banner">
+      {include file="neibanner" /}
+    </div>
+    <!-- banner end -->
+
+    <!-- 内页导航 -->
+    <section class="neinav">
+      <div class="con1400">
+        {include file="neiernav" /}
+      </div>
+    </section>
+    <!-- 内页导航 end -->
+
+    <!-- 主体 -->
+    <section class="neimain">
+      <div class="newslistp">
+        <div class="con1400">
+          <div class="newslistp_top animate"
+          data-animate="fadeInUp" data-duration="1.5s" data-delay="0.1s">
+            <!-- Swiper -->
+            <div class="swiper-container newslistpswiper">
+              <div class="swiper-wrapper">
+                {ld:list limit='5'  ext='content' }
+                <div class="swiper-slide">
+                  <a class="newslistp_item flexrow" href="{$item.url}" title="{$item.title}">
+                    <div class="newslistp_l">
+                      <img src="{$item.image}" alt="{$item.title}">
+                    </div>
+                    <div class="newslistp_r">
+                      <h3>{$item.title}</h3>
+                      <p>
+                        {$item.seo_description|ld_str_cut=120}
+                      </p>
+                      <div class="newslistp_rbot flexrow">
+                        <span>{$item.show_time|ld_fdate='Y-m-d'}</span>
+                        <strong>READ MORE ></strong>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                {/ld:list}
+              </div>
+            </div>
+            <!-- Add Pagination -->
+            <div
+              class="swiper-pagination newslistppagination banner_pag "></div>
+            <!-- Initialize Swiper -->
+            <script>
+              var newslistpswiper = new Swiper('.newslistpswiper', {
+                slidesPerView: 1,
+                autoplay:true,
+                spaceBetween: 30,
+                loop: true,
+                pagination: {
+                  el: '.newslistppagination',
+                  clickable: true,
+                },
+              });
+            </script>
+          </div>
+          <div class="newslistp_bot container">
+            <ul class="row">
+              {ld:list limit='6'  ext='content'  page='true'}
+              <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12 animate"
+              data-animate="zoomIn" data-duration="1.5s" data-delay="0.{$i}s">
+                <a href="{$item.url}" title="{$item.title}">
+                  <div class="newslistp_botimg">
+                    <img src="{$item.image}" alt="{$item.title}">
+                  </div>
+                  <div class="newslistp_botdes flexrow">
+                    <h3>{$item.title|ld_str_cut=60}</h3>
+                    <p>MORE ></p>
+                  </div>
+                </a>
+              </li>
+              {/ld:list}
+            </ul>
+          </div>
+          <div class="newspage">
+            {$pages} 
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 主体 end -->
+
+    <!-- 底部表单 -->
+    {include file="footmess" /}
+    <!-- 底部表单 end -->
+
+    <!-- 底部导航 -->
+    {include file="foot" /}
+    <!-- 底部导航 end -->
+
+    <!-- 公用js -->
+    {include file="footjs" /}
+
+  </body>
+
+</html>

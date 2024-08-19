@@ -1,0 +1,39 @@
+
+
+<script>
+                    //分享到微信的二维码
+                    var path = window.location.href;
+                    $("#qrcode").qrcode({
+                        text: path, //设置二维码内容
+                        render: "table", //设置渲染方式
+                        width: 256, //设置宽度,默认生成的二维码大小是 256×256
+                        height: 256, //设置高度
+                        typeNumber: -1, //计算模式
+                        background: "#ffffff", //背景颜色
+                        foreground: "#000000" //前景颜色
+                    });
+                    //2.分享到微博，空间
+                    //新浪微博分享部分
+                    var ShareTip = function() {
+             
+                    }
+                    //分享到腾讯微博
+                 ShareTip.prototype.sharetoqq = function(content, url, picurl) {
+                     var shareqqstring = 'http://v.t.qq.com/share/share.php?title=' + content + '&url=' + url + '&pic=' + picurl;
+                     window.open(shareqqstring);
+                 }
+                    //分享到新浪微博
+                    ShareTip.prototype.sharetosina = function(title, url, picurl) {
+                        var sharesinastring = 'http://v.t.sina.com.cn/share/share.php?title=' + title + '&url=' + url + '&content=utf-8&sourceUrl=' + url + '&pic=' + picurl;
+                        window.open(sharesinastring);
+                    }
+                    //分享到QQ空间
+                    ShareTip.prototype.sharetoqqzone = function(title, url, picurl) {
+                        var shareqqzonestring = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?summary=' + title + '&url=' + url + '&pics=' + picurl;
+                        window.open(shareqqzonestring);
+                    }
+                    $(".a-weibo").click(function() {
+                        var share1 = new ShareTip();
+                        share1.sharetosina("{$content.title}", window.location.href, "");
+                    })
+                </script>

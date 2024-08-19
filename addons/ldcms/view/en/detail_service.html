@@ -1,0 +1,32 @@
+<!--
+ * @Email: allen0101stanton@outlook.com
+ * @Author: Eric
+ * @Description: 
+-->
+{extend name="base" /} {block name="main"}
+<link href="{ld:src src='fxg/css/contact.css?'}" rel="stylesheet" />
+<div class="hero_area jiuan-top">
+    <div class="hero_bg_box">
+        <img src="__ADDON__/fxg/images/hero-bg.jpg" alt="generator" />
+    </div>
+</div>
+
+<div class="service-banner service-bg">
+    <div class="container py-5">
+        <h1 class="display-4 text-white mb-3 animated slideInDown">
+            {$category.name}
+        </h1>
+        <p class="sub-title-cont text-white">{$category.subname}</p>
+    </div>
+</div>
+<section class="contact_section layout_padding">
+    <div
+        class="text-center mx-auto mb-5 wow fadeInUp"
+        style="max-width: 600px; visibility: visible"
+    >
+        <h6 class="service-title">{$content.title}</h6>
+        <h1 class="service-test mb-4">{$category.seo_title}</h1>
+    </div>
+    <div class="container">{$content.content}</div>
+</section>
+{/block}

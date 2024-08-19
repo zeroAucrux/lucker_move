@@ -1,0 +1,45 @@
+<div class="panel panel-default panel-intro">
+    <div class="panel-heading">
+        {:build_heading(null,FALSE)}
+        <div class="ldcmslang"></div>
+    </div>
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div id="toolbar" class="toolbar">
+                        <a href="javascript:;" class="btn btn-primary btn-refresh" title="{:__('Refresh')}" ><i class="fa fa-refresh"></i> </a>
+                        <a href="javascript:;" class="btn btn-success btn-add {:$auth->check('ldcms/category/add')?'':'hide'}" title="{:__('Add')}" ><i class="fa fa-plus"></i> {:__('Add')}</a>
+                        <a href="{:url('ldcms/category/adds')}" class="btn btn-success btn-dialog {:$auth->check('ldcms/category/adds')?'':'hide'}" title="{:__('Adds')}" ><i class="fa fa-plus"></i> {:__('Adds')}</a>
+
+                        <a href="javascript:;" class="btn btn-success btn-edit btn-disabled disabled {:$auth->check('ldcms/category/edit')?'':'hide'}" title="{:__('Edit')}" ><i class="fa fa-pencil"></i> {:__('Edit')}</a>
+                        <a href="javascript:;" class="btn btn-danger btn-del-verify btn-disabled disabled {:$auth->check('ldcms/category/del')?'':'hide'}" title="{:__('Delete')}" ><i class="fa fa-trash"></i> {:__('Delete')}</a>
+
+                        <a href="{:url('ldcms/category_fields/index')}" class="btn btn-info btn-fields btn-dialog {:$auth->check('ldcms/category_fields/index')?'':'hide'}" title="{:__('CategoryField')}" ><i class="fa fa-cog"></i> {:__('CategoryField')}</a>
+                        <a href="javascript:;" class="btn btn-success btn-copy {:$auth->check('ldcms/category/copy_langs')?'':'hide'}" title="跨语言复制数据"><i class="fa fa-copy"></i> 跨语言复制数据</a>
+						{if $addon_config['open_translate']==1}
+						<a class="btn btn-primary btn-translation {:$auth->check('ldcms/category/translate')?'':'hide'}" data-params="mid={$mid}" title="{:__('Translation')}"><i class="fa fa-globe"></i> {:__('Translation')}</a>
+						{/if}
+					</div>
+                    <table id="table" class="table table-striped table-bordered table-hover table-nowrap"
+                           data-operate-edit="{:$auth->check('ldcms/category/edit')}"
+                           data-operate-del="{:$auth->check('ldcms/category/del')}"
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script id="deltpl" type="text/html">
+    <div class="">
+        <div class="">
+            <p >该栏目含有内容数据，删除栏目会同时被删除，是否<strong>确认删除？</strong></p>
+            <p class="text-danger">如需保留数据，请先至内容管理中移动数据。</p>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,155 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+	<div class="form-group">
+		<label class="control-label col-xs-12 col-sm-2">{:__('Action')}:</label>
+		<div class="col-xs-12 col-sm-8">
+			<input id="c-action" class="form-control" data-rule="required"  name="row[action]" type="text" value="{$row.action|htmlentities}">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-xs-12 col-sm-2">{:__('Type')}:</label>
+		<div class="col-xs-12 col-sm-8">
+			<select  id="c-type" class="form-control selectpicker" name="row[type]">
+				{foreach name="typeList" item="vo"}
+				<option value="{$key}" >{$vo}</option>
+				{/foreach}
+			</select>
+		</div>
+	</div>
+	<div data-favisible="type=sql">
+		<div class="form-group">
+			<label class="control-label col-xs-12 col-sm-2">{:__('Primary table')}:</label>
+			<div class="col-xs-12 col-sm-8">
+				<div class="radio radio-inline" style="padding-left: 0">
+					<label for="db_type1">
+						<input id="db_type1" name="row[setting_db_type]" type="radio" value="model"  checked />
+						Model
+					</label>
+					<label for="db_type2">
+						<input id="db_type2" name="row[setting_db_type]" type="radio" value="name"  />
+						表名称
+					</label>
+				</div>
+				<div style="margin-top: 10px">
+					<div data-favisible="setting_db_type=model">
+						<input class="form-control" name="row[setting][model]" data-rule="required"  type="text" placeholder="输入模型路径:\addons\ldcms\model\Document" value="{$row.setting.model}">
+					</div>
+					<div data-favisible="setting_db_type=name" >
+						<input class="form-control" name="row[setting][name]" data-rule="required"  type="text" placeholder="输入表名称:ldcms_document" value="{$row.setting.name}">
+					</div>
+
+					<input name="row[setting][db_type]" type="hidden" value="model" />
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-xs-12 col-sm-2">{:__('Alias')}:</label>
+			<div class="col-xs-12 col-sm-8">
+				<input id="c-alias" class="form-control" name="row[setting][alias]" data-rule="required"  placeholder="表别名" type="text" value="{$row.setting.alias|htmlentities}">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-xs-12 col-sm-2">{:__('Field')}:</label>
+			<div class="col-xs-12 col-sm-8">
+				<textarea name="row[setting][field]" class="form-control" rows="2">{$row.setting.field}</textarea>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-xs-12 col-sm-2">{:__('Join')}:</label>
+			<div class="col-xs-12 col-sm-8">
+				<dl class="fieldlist" data-name="row[setting_join]" data-template="jointpl">
+					<dd>
+						<ins style="width: 32%">表名称</ins>
+						<ins style="width: 41%">关联条件</ins>
+						<ins style="width: 15%">join类型</ins>
+					</dd>
+					<dd>
+						<a href="javascript:;" class="btn btn-sm btn-success btn-append"><i class="fa fa-plus"></i> 追加</a>
+					</dd>
+					<textarea name="row[setting_join]" class="form-control hide" cols="30" rows="5">{$row.setting.join|json_encode}</textarea>
+				</dl>
+				<!--定义模板，模板语法使用Art-Template模板语法-->
+				<script type="text/html" id="jointpl">
+					<dd class="form-inline">
+						<input type="text" name="row[setting][join][<%=index%>][0]" class="form-control" value="<%=row[0]%>" style="width: 32%">
+						<input type="text" name="row[setting][join][<%=index%>][1]" class="form-control" value="<%=row[1]%>" style="width: 41%">
+						<select name="row[setting][join][<%=index%>][2]" class="form-control" style="width: 15%">
+							<option value="LEFT" <% if(row[2] == 'LEFT'){ %> selected <%}%> >LEFT</option>
+							<option value="RIGHT" <% if(row[2] == 'RIGHT'){ %> selected <%}%>>RIGHT</option>
+							<option value="INNER" <% if(row[2] == 'INNER'){ %> selected <%}%>>INNER</option>
+						</select>
+						<span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span> <span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span>
+					</dd>
+				</script>
+			</div>
+		</div>
+
+	</div>
+	<div data-favisible="type=func">
+		<div class="form-group">
+			<label class="control-label col-xs-12 col-sm-2">{:__('Class')}:</label>
+			<div class="col-xs-12 col-sm-8">
+				<input id="c-class" class="form-control" name="row[setting][class]" type="text" value="{$row.setting.class|htmlentities}" placeholder="类路径、命名空间，留空则不调用类">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-xs-12 col-sm-2">{:__('Func')}:</label>
+			<div class="col-xs-12 col-sm-8">
+				<input id="c-func" class="form-control" name="row[setting][func]" data-rule="required" type="text" value="{$row.setting.func|htmlentities}" placeholder="方法名、函数名">
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-xs-12 col-sm-2">{:__('Params')}:</label>
+		<div class="col-xs-12 col-sm-8">
+			<dl class="fieldlist" data-name="row[setting_params]" data-template="paramstpl">
+				<dd>
+					<ins style="width: 15%">字段</ins>
+					<ins style="width: 15%">条件</ins>
+					<ins style="width: 50%">值</ins>
+					<ins style="width: 8%">运算符</ins>
+				</dd>
+				<dd>
+					<span class="btn btn-sm btn-success btn-append"><i class="fa fa-plus"></i> 追加</span>
+				</dd>
+				<textarea name="row[setting_params]" class="form-control hide" cols="30" rows="5">{$row.setting.params|json_encode}</textarea>
+			</dl>
+			<!--定义模板，模板语法使用Art-Template模板语法-->
+			<script type="text/html" id="paramstpl">
+				<dd class="form-inline">
+					<input type="text" name="params[<%=index%>][0]" class="form-control" value="<%=row[0]%>" style="width: 15%">
+					<select name="params[<%=index%>][1]" class="selectpicker" data-width="15%" data-value="<%=row[1]%>">
+						{foreach $conditionList as $key=> $item}
+						<option value="{$key}">{$item}</option>
+						{/foreach}
+					</select>
+					<div class="input-group params-value" style="width: 50%">
+						<%if (row[0]&&!row[2]){%>
+						<input type="text" name="params[<%=index%>][2]" placeholder="前端传入参数值" class="form-control" disabled value="<%=row[2]%>" >
+						<a href="javascript:;" class="input-group-addon" style="width:20px;background-color:#F4F4F4">后端填写</a>
+						<%}else{%>
+						<input type="text" name="params[<%=index%>][2]" class="form-control" value="<%=row[2]%>" >
+						<a href="javascript:;" class="input-group-addon" style="width:20px;background-color:#F4F4F4">前端传值</a>
+						<%}%>
+					</div>
+					<select name="params[<%=index%>][3]" class="selectpicker" data-width="8%" data-value="<%=row[3]%>">
+						<option value="AND" <% if(row[3] == 'AND'){ %> selected <%}%>>AND</option>
+						<option value="OR" <% if(row[3] == 'OR'){ %> selected <%}%>>OR</option>
+					</select>
+					<span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span>
+					<span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span>
+				</dd>
+			</script>
+		</div>
+	</div>
+
+	<div class="form-group layer-footer">
+		<label class="control-label col-xs-12 col-sm-2"></label>
+		<div class="col-xs-12 col-sm-8">
+			<button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+		</div>
+	</div>
+</form>

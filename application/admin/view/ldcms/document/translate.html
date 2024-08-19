@@ -1,0 +1,27 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+	<div class="alert alert-warning">
+		<p>注意：批量翻译一次不建议超过5条</p>
+	</div>
+	<div class="input-group col-md-3">
+		<select name="from_lang" class="form-control"  >
+			{foreach $langs as $key=>$vo}
+			<option value="{$vo['code']}">{$vo['title']}</option>
+			{/foreach}
+		</select>
+		<span class="input-group-addon" >翻译成</span>
+		<select name="to_lang" class="form-control"  >
+			{foreach $langs as $key=>$vo}
+			<option value="{$vo['code']}" {if $lang==$vo['code']} selected {/if}>{$vo['title']}</option>
+			{/foreach}
+		</select>
+	</div>
+
+	<div class="form-group layer-footer">
+		<label class="control-label col-xs-12 col-sm-2"></label>
+		<div class="col-xs-12 col-sm-8">
+			<input type="hidden"  name="ids" value="{$Request.get.ids}">
+			<button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+			<button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+		</div>
+	</div>
+</form>

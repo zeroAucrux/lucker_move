@@ -1,0 +1,191 @@
+{
+  "id": "3653943",
+  "name": "梅曼智能",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "579520",
+      "name": "相机1",
+      "font_class": "xiangji1",
+      "unicode": "e77f",
+      "unicode_decimal": 59263
+    },
+    {
+      "icon_id": "3828116",
+      "name": "机器视觉",
+      "font_class": "jiqishijue",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "5243840",
+      "name": "应用",
+      "font_class": "yingyong",
+      "unicode": "e699",
+      "unicode_decimal": 59033
+    },
+    {
+      "icon_id": "12306464",
+      "name": "水滴",
+      "font_class": "shuidi",
+      "unicode": "e682",
+      "unicode_decimal": 59010
+    },
+    {
+      "icon_id": "12614672",
+      "name": "光圈",
+      "font_class": "guangquan",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "18661000",
+      "name": "智慧环保_环保，养护",
+      "font_class": "zhihuihuanbao_huanbaoyanghu",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "22553132",
+      "name": "镜头",
+      "font_class": "a-ziyuan40",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "27003767",
+      "name": "灯泡",
+      "font_class": "dengpao",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "31987453",
+      "name": "控制器",
+      "font_class": "a-huaban1fuben14",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "2019073",
+      "name": "邮箱",
+      "font_class": "youxiang",
+      "unicode": "e7b1",
+      "unicode_decimal": 59313
+    },
+    {
+      "icon_id": "577365",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e752",
+      "unicode_decimal": 59218
+    },
+    {
+      "icon_id": "629340",
+      "name": "收货地址",
+      "font_class": "shouhuodizhi",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "782338",
+      "name": "勾",
+      "font_class": "gou",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "978679",
+      "name": "引号",
+      "font_class": "quotation",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "1037680",
+      "name": "企业文化",
+      "font_class": "qiyewenhua",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "1375278",
+      "name": "018",
+      "font_class": "dianhua",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "2674928",
+      "name": "箭头 右",
+      "font_class": "jiantouyou",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "5092841",
+      "name": "项目",
+      "font_class": "project-o",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "7050329",
+      "name": "文化活动",
+      "font_class": "wenhuahuodong",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "9509974",
+      "name": "电话",
+      "font_class": "dianhua1",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "9568058",
+      "name": "箭头01",
+      "font_class": "jiantou",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "10454843",
+      "name": "招聘岗位",
+      "font_class": "zhaopingangwei",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "15203363",
+      "name": "算法",
+      "font_class": "suanfa",
+      "unicode": "e649",
+      "unicode_decimal": 58953
+    },
+    {
+      "icon_id": "25739953",
+      "name": "模块",
+      "font_class": "mokuai",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "26847473",
+      "name": "荣誉面性",
+      "font_class": "rongyumianxing",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "27285428",
+      "name": "软件",
+      "font_class": "a-ziyuan598",
+      "unicode": "e793",
+      "unicode_decimal": 59283
+    }
+  ]
+}

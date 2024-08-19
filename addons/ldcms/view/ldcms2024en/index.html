@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {include file="common" /}
+</head>
+
+<body>
+  <!-- top -->
+  {include file="head" /}
+  <!-- top end -->
+
+  <!-- banner -->
+  <div class="banner">
+    <!--  -->
+    <!-- Swiper -->
+    <div class="swiper-container bannerswiper">
+      <div class="swiper-wrapper">
+        {ld:slide name="banner"}
+        <div class="swiper-slide">
+          <img class="banner_img" src="{$item.image}" alt="{$item.title}">
+          <div class="banner_desc flexrow">
+            <h2>{$item.title}</h2>
+            <p>{$item.description}</p>
+          </div>
+        </div>
+        {/ld:slide}
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination banner_pag"></div>
+    </div>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var bannerswiper = new Swiper('.bannerswiper', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        autoplay: true,
+        speed: 1000,
+        loop: true,
+        pagination: {
+          el: '.banner_pag',
+          clickable: true,
+        },
+      });
+    </script>
+
+  </div>
+  <!-- banner end -->
+
+  <!-- 产品中心 -->
+  {ld:action action="home_block" model_table_name="product" alias="cate"}
+  <section class="idx_item ">
+    <div class="con1400">
+      <div class="idx_titles">
+        <h3>{$cate.name}</h3>
+      </div>
+      <div class="idx_pros">
+        <div class="container con1400">
+          <ul class="row">
+            {ld:list cid="$cate['id']" limit='4' }
+            <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animate" data-animate="fadeInUp" data-duration="1s"
+              data-delay="0.{$i}s">
+              <a href="{$item.url}" title="{$item.title}">
+                <img src="{$item.image}" alt="{$item.title}">
+                <div class="idx_pros_desc flexrow">
+                  <h3>{$item.title}</h3>
+                </div>
+              </a>
+            </li>
+            {/ld:list}
+          </ul>
+        </div>
+      </div>
+      <div class="idxpros_more">
+        <a href="{$cate.url}">All Products +</a>
+      </div>
+    </div>
+  </section>
+  {/ld:action}
+  <!-- 产品中心 end -->
+
+  <!-- 解决方案 -->
+  {ld:action action="home_block" model_table_name="team" alias="cate" key="n"}
+  <section class="idx_item ">
+    <div class="con1400">
+      <div class="idx_titles">
+        <h3>{$cate.name}</h3>
+      </div>
+    </div>
+    <div class="idx_fa  animate" data-animate="fadeInUp" data-duration="1.5s" data-delay="0.1s">
+      <ul>
+        {ld:list cid="$cate['id']" limit='3' flag='top' }
+        <li class="idx_falist{$i}  {if $i==1} active {/if}" style="background-image: url('{$item.image}');">
+          <a href="{$item.url}" title="{$item.title}">
+            <div class="idxfa_title flexrow">
+              <h3>{$item.title}</h3>
+            </div>
+            <div class="idx_fadesc  animate" data-animate="fadeIn" data-duration="1.5s" data-delay="0.1s">
+              <h3>{$item.title}</h3>
+              <div class="idx_fadesc_item ">
+                <p>{$item.seo_description}</p>
+                <button>Learn more ></button>
+              </div>
+            </div>
+          </a>
+        </li>
+        {/ld:list}
+      </ul>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $(".idx_fa ul li").mouseenter(function () {
+          $(this).addClass("active").siblings().removeClass("active");
+        })
+        $('.idx_falist1').mouseenter(function () {
+          $('.idx_falist1').css({ "left": "0px" });
+          $('.idx_falist2').css({ "left": "50%" });
+          $('.idx_falist3').css({ "left": "75%" });
+        });
+        $('.idx_falist2').mouseenter(function () {
+          $('.idx_falist1').css({ "left": "0px" });
+          $('.idx_falist2').css({ "left": "25%" });
+          $('.idx_falist3').css({ "left": "75%" });
+        });
+        $('.idx_falist3').mouseenter(function () {
+          $('.idx_falist1').css({ "left": "0px" });
+          $('.idx_falist2').css({ "left": "25%" });
+          $('.idx_falist3').css({ "left": "50%" });
+        });
+      })
+    </script>
+  </section>
+  {/ld:action}
+  <!-- 解决方案 end -->
+
+  <!-- 关于我们 -->
+  <section class="idx_item idx_about">
+    <div class="con1400">
+      {ld:sort cid="195"}
+      <div class="idx_titles">
+        <h3>{$item.name}</h3>
+      </div>
+      {/ld:sort}
+    </div>
+    <div class="container con1400">
+      <div class="row">
+        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12  animate" data-animate="fadeInLeft" data-duration="1s"
+          data-delay="0.1s">
+          <div class="idx_about_l">
+            {ld:content cid="209" }
+            <h3>{$content.title}</h3>
+            <p>
+              {$content.seo_description}
+            </p>
+            <a href="{$content.url}">Learn more ></a>
+            {/ld:content}
+            <div class="idx_about_num">
+              <div class="numCount">
+                <ul class="flexrow">
+                  <li>
+                    <div class="item">
+                      <div class="numU">
+                        <span class="numCX" data-startval="0" data-endval="10" data-speed="7"
+                          data-decimals="0" id="mumC1">10</span>
+                        <sup class="unitC">+</sup>
+                        <!-- <i class="numi">%</i> -->
+                      </div>
+                      <div class="indc">Years Experience</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item">
+                      <div class="numU">
+                        <span class="numCX" data-startval="0" data-endval="20" data-speed="7"
+                          data-decimals="0" id="mumC2">20</span>
+                        <sup class="unitC">+</sup>
+                        <!-- <i class="numi">%</i> -->
+                      </div>
+                      <div class="indc">Intellectual Property</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item">
+                      <div class="numU">
+                        <span class="numCX" data-startval="0" data-endval="3000" data-speed="7"
+                          data-decimals="0" id="mumC3">3000</span>
+                        <sup class="unitC">+</sup>
+                        <!-- <i class="numi">%</i> -->
+                      </div>
+                      <div class="indc">Brand Customers</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item">
+                      <div class="numU">
+                        <span class="numCX" data-startval="0" data-endval="50" data-speed="7"
+                          data-decimals="0" id="mumC4">50</span>
+                        <sup class="unitC">+</sup>
+                        <!-- <i class="numi">%</i> -->
+                      </div>
+                      <div class="indc">Technical Personnel</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <script src="__ADDON__/ldcms2024/js/count.js" type="text/javascript" charset="utf-8"></script>
+          <script type="text/javascript">
+            $(function () {
+              var countCXArr = [];
+              var countCX = function () {
+                $(".numCount").each(function (i, dom) {
+                  if (countCXArr[i] && countCXArr[i] === true) {
+                    return;
+                  }
+                  var sT;
+                  var ncTop;
+                  sT = $(window).scrollTop();
+                  ncTop = $(dom).offset().top;
+                  var id, decimals, startVal, endVal, duration;
+                  if (sT > ncTop - $(window).height() && sT < ncTop) {
+                    $(dom)
+                      .find(".numCX")
+                      .each(function () {
+                        id = $(this).attr("id");
+                        (decimals = $(this).attr("data-decimals")),
+                          (startVal = $(this).attr("data-startVal")),
+                          (endVal = $(this).attr("data-endVal")),
+                          (duration = $(this).attr("data-speed"));
+                        new CountUp(
+                          id,
+                          startVal,
+                          endVal,
+                          decimals,
+                          duration,
+                          {
+                            useEasing: true, //效果
+                            separator: "", //数字分隔符
+                          }
+                        ).start(); // target：目标元素id, startVal：你想要开始的值, endVal：你想要到达的值, decimals：小数位数，默认值为0, duration：动画持续时间为秒，默认值为2, options：选项的可选对象
+                        countCXArr[i] = true;
+                      });
+                  }
+                });
+              };
+              countCX();
+              $(window).on("scroll", function () {
+                countCX();
+              });
+            });
+          </script>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12  animate" data-animate="fadeInRight" data-duration="1.5s"
+          data-delay="0.1s">
+          {ld:content cid="209"}
+          <div class="idx_about_r">
+            <img src="{$content.image}" alt="{$content.title}">
+          </div>
+          {/ld:content}
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!-- 关于我们 end -->
+
+  <!-- 案例展示 -->
+  {ld:action action="home_block" model_table_name="case" alias="cate" key="n"}
+  <section class="idx_item idx_hzitem">
+    <div class=" con1400">
+      <div class="idx_titles">
+        <h3>{$cate.subname}</h3>
+      </div>
+      <div class="idx_hezuo  animate" data-animate="fadeInUp" data-duration="1.5s" data-delay="0.1s">
+        <!-- Swiper -->
+        <div class="swiper-container idxhz_swiper">
+          <ul class="swiper-wrapper">
+            {ld:list cid="$cate['id']" limit='6'}
+            <li class="swiper-slide">
+              <a href="{$item.url}" title="{$item.title}">
+                <img src="{$item.image}" alt="{$item.title}">
+                <div class="idxhz_title">
+                  <h3>{$item.title}</h3>
+                </div>
+              </a>
+            </li>
+            {/ld:list}
+          </ul>
+        </div>
+
+        <!-- Add Arrows -->
+        <div class="swiper-button-next idxhz_next"></div>
+        <div class="swiper-button-prev idxhz_prev"></div>
+
+        <!-- Initialize Swiper -->
+        <script>
+          var idxhz_swiper = new Swiper('.idxhz_swiper', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+              nextEl: '.idxhz_next',
+              prevEl: '.idxhz_prev',
+            },
+            breakpoints: {
+              320: {  //当屏幕宽度大于等于320
+                slidesPerView: 1,
+                spaceBetween: 10
+              },
+              768: {  //当屏幕宽度大于等于768 
+                slidesPerView: 2,
+                spaceBetween: 20
+              },
+              1280: {  //当屏幕宽度大于等于1280
+                slidesPerView: 3,
+                spaceBetween: 30
+              }
+            },
+          });
+        </script>
+      </div>
+    </div>
+  </section>
+  {/ld:action}
+  <!-- 案例展示 end -->
+
+  <!-- 新闻中心 -->
+  {ld:action action="home_block" model_table_name="news" alias="cate" key="n"}
+  <section class="idx_item idx_news">
+    <div class="con1400">
+      <div class="idx_titles">
+        <h3>{$cate.name}</h3>
+      </div>
+    </div>
+    <div class="container con1400">
+      <div class="row">
+        {ld:list cid="$cate['id']" limit='3' }
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 animate" data-animate="zoomIn" data-duration="1.5s"
+          data-delay="0.{$i}s">
+          <div class="idxnews_item">
+            <a href="{$item.url}" title="{$item.title}">
+              <div class="idxnews_img">
+                <img src="{$item.image}" alt="{$item.title}">
+              </div>
+              <div class="idxnews_desc">
+                <h4>{$item.cname}</h4>
+                <h3>{$item.title|ld_str_cut=30}</h3>
+                <p>
+                  {$item.seo_description|ld_str_cut=100}
+                </p>
+                <button>Learn More ></button>
+              </div>
+            </a>
+          </div>
+        </div>
+        {/ld:list}
+      </div>
+    </div>
+    <div class="idxnews_link">
+      <a href="{$cate.url}">All news +</a>
+    </div>
+  </section>
+  {/ld:action}
+  <!-- 新闻中心 end -->
+
+  <!-- 合作客户 -->
+  <section class="idx_item idx_kehu">
+    <div class="con1400">
+      {ld:sort cid="202"}
+      <div class="idx_titles">
+        <h3>{$item.name}</h3>
+      </div>
+      {/ld:sort}
+      <div class="idxkehu_item animate" data-animate="fadeInUp" data-duration="1.5s" data-delay="0.1s">
+        <!-- Swiper -->
+        <div class="swiper-container idxkh_swiper">
+          <div class="swiper-wrapper">
+            {ld:list cid="202" limit='18' ext='content' }
+            <div class="swiper-slide">
+              <div class="idxkh_simg">
+                <img src="{$item.image}" alt="{$item.title}" title="{$item.title}">
+              </div>
+            </div>
+            {/ld:list}
+          </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination idxkh_spagination"></div>
+
+        <!-- Initialize Swiper -->
+        <script>
+          var idxkh_swiper = new Swiper('.idxkh_swiper', {
+            slidesPerView: 6,
+            slidesPerColumn: 2,
+            spaceBetween: 30,
+            // loop: true,
+            pagination: {
+              el: '.idxkh_spagination',
+              clickable: true,
+            },
+
+            breakpoints: {
+              320: {  //当屏幕宽度大于等于320
+                slidesPerView: 2,
+                spaceBetween: 10
+              },
+              768: {  //当屏幕宽度大于等于768 
+                slidesPerView: 4,
+                spaceBetween: 20
+              },
+              1280: {  //当屏幕宽度大于等于1280
+                slidesPerView: 6,
+                spaceBetween: 30
+              }
+            },
+          });
+        </script>
+      </div>
+    </div>
+
+  </section>
+  <!-- 合作客户 end -->
+
+  <!-- 底部表单 -->
+  {include file="footmess" /}
+  <!-- 底部表单 end -->
+
+  <!-- 底部导航 -->
+  {include file="foot" /}
+  <!-- 底部导航 end -->
+
+  <!-- 公用js -->
+  {include file="footjs" /}
+
+</body>
+
+</html>

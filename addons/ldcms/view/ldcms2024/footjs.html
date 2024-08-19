@@ -1,0 +1,118 @@
+
+
+<script>
+      $(document).ready(function(){
+        
+        // 电脑导航下滑时候样式
+        $(function () {
+          var nav = $(".top"); //得到导航对象baidu
+          var win = $(window); //得到窗口对象
+          var sc = $(document); //得到document文档对象。zhi
+          win.scroll(function () {
+            if (sc.scrollTop() >= 60) {
+              nav.addClass("fixednav");
+              $(".xuanfu").fadeIn();
+            } else {
+              nav.removeClass("fixednav");
+              $(".xuanfu").fadeOut();
+            }
+          });
+        });
+
+         // 手机导航下滑时候样式
+         $(function () {
+          var wapnav = $(".waptop"); //得到导航对象baidu
+          var wapwin = $(window); //得到窗口对象
+          var wapsc = $(document); //得到document文档对象。zhi
+          wapwin.scroll(function () {
+            if (wapsc.scrollTop() >= 60) {
+              wapnav.addClass("fixednav");
+              // $(".xuanfu").fadeIn();
+            } else {
+              wapnav.removeClass("fixednav");
+              // $(".xuanfu").fadeOut();
+            }
+          });
+        });
+
+        // 顶部搜索
+        $('.top_searchico').click(function(){
+          $('.searchitem').fadeIn();
+        });
+        $('.searchclose').click(function(){
+          $('.searchitem').hide();
+        });
+
+         // 电脑导航下拉
+         $(".nav>ul>li").mouseenter(function () {
+          $(this)
+            .find(".ernav")
+            .slideDown()
+            .end()
+            .siblings("li")
+            .find(".ernav")
+            .hide();
+        });
+        $(".ernav").mouseleave(function () {
+          $(this).hide();
+        });
+
+       // 返回顶部
+       $('#goToTop').click(function () {
+          $('html , body').animate({ scrollTop: 0 }, 'slow');
+        });
+
+        // 手机端语言切换
+        $('.waptop_langa').click(function(){
+          $('.langitem').fadeToggle();
+        })
+
+        // 手机端搜索效果
+        $('.waptop_rs').click(function(){
+          $('.wapsearch').fadeIn();
+        });
+        $('.wapsea_close').click(function(){
+          $('.wapsearch').hide();
+        });
+
+        // 手机端导航栏目下拉效果
+        $('.wapnav_ico').click(function() {
+          $(this).toggleClass('active').parent('li').siblings().find('.wapnav_ico').removeClass('active');
+          $(this).next('.wapernav').slideToggle().end().parent('li').siblings().find('.wapernav').slideUp();;
+        });
+
+        // 手机端导航下拉效果
+        $('.waptop_rnav').click(function(){
+          $('.wapnav').slideDown();
+        })
+        $('.wapnavt_r').click(function(){
+          $('.wapnav').hide();
+        });
+
+        //  锚点缓慢滑动 
+        $(function(){  
+          $('a[href*=#],area[href*=#]').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+              var $target = $(this.hash);
+              $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+              if ($target.length) {
+                var targetOffset = $target.offset().top;
+                $('html,body').animate({
+                  scrollTop: targetOffset
+                },
+                1000);
+                return false;
+              }
+            }
+          });
+        });
+
+        // animate 
+        $('.animate').scrolla({
+          mobile: false,
+          once: true
+        });
+
+      })
+    </script>
+

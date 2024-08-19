@@ -1,0 +1,89 @@
+<div class="panel panel-default panel-intro">
+    <div class="panel-heading">
+        {:build_heading(null,FALSE)}
+        <ul class="nav nav-tabs" >
+            {foreach $models as $k=>$vo }
+            <li class="{$mid==$k?'active':''}"> <a href="{:url('/ldcms/document/index/mid/'.$k)}" class="addtabsit" data-value="{$k}">{$vo.name}</a></li>
+            {/foreach}
+        </ul>
+        <div class="ldcmslang"></div>
+    </div>
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div id="toolbar" class="toolbar">
+                        <a href="javascript:;" class="btn btn-primary btn-refresh" title="{:__('Refresh')}" ><i class="fa fa-refresh"></i> </a>
+                        {if $mid!=1}<a href="javascript:;"
+                            class="btn btn-success btn-add {:$auth->check('ldcms/document/add')?'':'hide'}"
+                            data-params="mid={$mid}"
+                            title="{:__('Add')}" ><i class="fa fa-plus"></i> {:__('Add')}</a>{/if}
+                        <a href="javascript:;"
+                            class="btn btn-success btn-edit btn-disabled disabled {:$auth->check('ldcms/document/edit')?'':'hide'}" data-params="mid={$mid}" title="{:__('Edit')}" ><i class="fa fa-pencil"></i> {:__('Edit')}</a>
+                        {if $mid!=1}
+                        <a href="javascript:;" class="btn btn-danger btn-del btn-disabled disabled {:$auth->check('ldcms/document/del')?'':'hide'}" title="{:__('Delete')}" ><i class="fa fa-trash"></i> {:__('Delete')}</a>
+                        <a class="btn btn-info btn-move dropdown-toggle btn-disabled disabled"><i class="fa fa-arrow-right"></i> {:__('Move')}</a>
+                        <a class="btn btn-info btn-copyselected btn-disabled disabled" data-params="mid={$mid}" href="javascript:;"><i
+                            class="fa fa-copy"></i> {:__('Copy')}</a>
+
+                        <div class="dropdown btn-group {:$auth->check('ldcms/document/multi')?'':'hide'}">
+                            <a class="btn btn-primary btn-more dropdown-toggle btn-disabled disabled" data-toggle="dropdown"><i class="fa fa-cog"></i> {:__('More')}</a>
+                            <ul class="dropdown-menu text-left" role="menu">
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="status=1"><i class="fa fa-eye"></i> {:__('Set to normal')}</a></li>
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="status=0"><i class="fa fa-eye-slash"></i> {:__('Set to hidden')}</a></li>
+                            </ul>
+                        </div>
+                        {/if}
+                        <a class="btn btn-danger btn-recyclebin btn-dialog"  href="ldcms/document/recyclebin"
+                            title="{:__('Recycle bin')}"><i class="fa fa-recycle"></i> {:__('Recycle bin')}</a>
+                        <div class="dropdown btn-group {:$auth->check('ldcms/document/baidupush')?'':'hide'}">
+                            <a class="btn btn-warning btn-more dropdown-toggle btn-disabled disabled" data-toggle="dropdown"><i class="fa fa-random"></i> {:__('Baidupush')}</a>
+                            <ul class="dropdown-menu text-left" role="menu">
+                                <li>
+                                    <a class="btn btn-link btn-disabled disabled btn-baidupush {:$auth->check('ldcms/document/baidupush')?'':'hide'}" data-params="type=zz"   title="{:__('Baidupushzz')}"> {:__('Baidupushzz')}</a>
+                                </li>
+                                <li>
+                                    <a class="btn btn-link btn-disabled disabled btn-baidupush {:$auth->check('ldcms/document/baidupush')?'':'hide'}" data-params="type=ks"  title="{:__('Baidupushks')}">{:__('Baidupushks')}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-success btn-sync_data {:$auth->check('ldcms/copy_langs/document')?'':'hide'}" data-params="mid={$mid}" title="{:__('CopyLangs')}"><i class="fa fa-copy"></i> {:__('CopyLangs')}</a>
+						{if $addon_config['open_translate']==1}
+						<a class="btn btn-primary btn-translation {:$auth->check('ldcms/document/translate')?'':'hide'}" data-params="mid={$mid}" title="{:__('Translation')}"><i class="fa fa-globe"></i> {:__('Translation')}</a>
+						{/if}
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover table-nowrap"
+                           data-operate-edit="{:$auth->check('ldcms/document/edit')}"
+                           data-operate-del="{:$auth->check('ldcms/document/del')}"
+                           data-params="mid={$mid}"
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script id="categorytpl" type="text/html">
+    <div class="">
+        <div class="alert alert-warning-light ui-sortable-handle" style="cursor: move;">
+            <b>请选择需要移动栏目</b><br>
+        </div>
+        <!-- /.box-body -->
+        <div class="text-black">
+            <div class="row">
+                <div class="col-sm-12">
+                    <select name="cid" class="form-control">
+                        {foreach $categorys as $category}
+                        <option value="{$category.id}">{$category.icon_name}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+</script>
+

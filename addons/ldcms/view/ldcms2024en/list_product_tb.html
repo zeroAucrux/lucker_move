@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {include file="common" /}
+  </head>
+
+  <body>
+    <!-- top -->
+    {include file="head" /}
+    <!-- top end -->
+
+    <!-- banner -->
+    <div class="banner">
+      {include file="neibanner" /}
+    </div>
+    <!-- banner end -->
+
+    <!-- 内页导航 -->
+    <section class="neinav">
+      <div class="con1400">
+        {include file="neiernav" /}
+      </div>
+    </section>
+    <!-- 内页导航 end -->
+
+    <!-- 主体 -->
+    <section class="neimain">
+      <div class="prolistpage">
+        <div class="con1400">
+          <div class="prolist_item flexrow">
+            <div class="prolist2_top animate"
+            data-animate="fadeInUp" data-duration="1.5s" data-delay="0.1s">
+              
+            {ld:filter mid="$category['mid']" title_text="All"}
+            <div class="prolist2_topsx flexrow">
+              <div class="prolist2_tsx_l">
+                <a href="{$item.url}">{:__($item.title)}</a>
+              </div>
+              <div class="prolist2_tsx_r">
+                <ul class="flexrow">
+                  {volist name="$item.content" id="li"}
+                  <li class="{$li.active?'active':''}">
+                    <a href="{$li.url}">{:__($li.title)}</a>
+                  </li>
+                  {/volist}
+                </ul>
+              </div>
+            </div>
+            {/ld:filter}
+              
+            </div>
+            <div class="prolist_r prolist2_r animate"
+              data-animate="fadeInUp" data-duration="1.5s" data-delay="0.1s">
+              <div class="prolist_list container">
+                <ul class="row">
+                  {ld:list limit='12' ext='content' page='true'}
+                  <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <a href="{$item.url}" title="{$item.title}">
+                      <div class="prolist_item_img">
+                        <img src="{$item.image}" alt="{$item.title}">
+                      </div>
+                      <div class="prolist_item_text flexrow">
+                        <h3>{$item.title|ld_str_cut=25}</h3>
+                        <img src="__ADDON__/ldcms2024/images/prolistr_ico2.png" alt>
+                      </div>
+                    </a>
+                  </li>
+                  {/ld:list}
+                </ul>
+              </div>
+              <div class="newspage">
+                {$pages}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 主体 end -->
+
+    <!-- 底部表单 -->
+    {include file="footmess" /}
+    <!-- 底部表单 end -->
+
+    <!-- 底部导航 -->
+    {include file="foot" /}
+    <!-- 底部导航 end -->
+
+    <!-- 公用js -->
+    {include file="footjs" /}
+
+  </body>
+
+</html>

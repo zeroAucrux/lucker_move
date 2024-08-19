@@ -1,0 +1,153 @@
+ <section class="foot">
+      <div class="con1400">
+        <div class="foottop flexrow">
+          <div class="footlogo">
+            <a href="{:addon_url('ldcms/index/index')}">
+              <img src="{$ld.logo1|cdnurl}" alt="{$ld.compony}">
+            </a>
+          </div>
+          <div class="footlinks">
+            <ul class="flexrow">
+              <li>
+                <a href="JavaScript:;">
+                  <img class="fewmico" src="__ADDON__/ldcms2024/images/douyin.svg" alt>
+                </a>
+                <div class="fewmimg">
+                  <img src="{$ld.dyewm|cdnurl}" alt="">
+                  <p>抖音二维码</p>
+                </div>
+              </li>
+              <li>
+                <a href="JavaScript:;">
+                  <img class="fewmico" src="__ADDON__/ldcms2024/images/weixin.svg" alt>
+                </a>
+                <div class="fewmimg">
+                  <img src="{$ld.wechat|cdnurl}" alt="">
+                  <p>微信公众号</p>
+                </div>
+              </li>
+              <li>
+                <a href="JavaScript:;">
+                  <img class="fewmico" src="__ADDON__/ldcms2024/images/qq.svg" alt>
+                </a>
+                <div class="fewmimg">
+                  <img src="{$ld.qqewm|cdnurl}" alt="">
+                  <p>QQ群:{$ld.qqquns}</p>
+                </div>
+              </li>
+              <li>
+                <a href="JavaScript:;">
+                  <img class="fewmico" src="__ADDON__/ldcms2024/images/xhs.svg" alt>
+                </a>
+                <div class="fewmimg">
+                  <img src="{$ld.xhsewm|cdnurl}" alt="">
+                  <p>小红书二维码</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footmid flexrow">
+          <div class="footmid_l flexrow">
+            {ld:nav}
+            <dl>
+              <dt><a href="{$item.url}"
+                  title="{$item.name}">{$item.name}</a></dt>
+              {ld:nav pid="$item['id']" alias="nav2"}
+              <dd><a href="{$nav2.url}"
+                  title="{$nav2.name}">{$nav2.name}</a></dd>
+              {/ld:nav}
+            </dl>
+            {/ld:nav}
+          </div>
+          <div class="footmid_r">
+            <ul>
+              <li>
+                <div class="footmid_rdesc">
+                  <p>{$ld.tel}</p>
+                </div>
+              </li>
+              <li>
+                <div class="footmid_rdesc">
+                  <p>{$ld.address}</p>
+                </div>
+              </li>
+              <li>
+                <div class="footmid_rdesc">
+                  <p>{$ld.email}</p>
+                </div>
+              </li>
+            </ul>
+            <div class="footmid_ewm ">
+              <ul class="flexrow">
+                <li>
+                  <img src="{$ld.wechat2|cdnurl}" alt>
+                  <p>咨询微信客服</p>
+                </li>
+                <li>
+                  <img src="{$ld.wechat|cdnurl}" alt>
+                  <p>微信公众号</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="footcopy">
+      <div class="con1400">
+        <div class="footcitem flexrow">
+          <div class="footc_l">
+            <span class="footc_ldesc">{$ld.copyright}</span>
+            <span>备案号：<a href="https://beian.miit.gov.cn/"
+                target="_blank" rel="noopener noreferrer">{$ld.icp}</a></span>
+                {ld:sort cid="193"}
+              <span><a href="{$item.url}" target="_blank">{$item.name}</a></span>
+              {/ld:sort}
+              {ld:sort cid="194"}
+              <span><a href="{$item.url}" target="_blank">{$item.name}</a></span>
+              {/ld:sort}
+          </div>
+          <div class="footc_r">
+            <p>友情链接</p>
+            <div class="footc_rlinks">
+              <ul>
+                {ld:link name='link'}
+                <li><a href="{$item.url}" target="_blank">{$item.title}</a></li>
+                {/ld:link}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="xuanfu">
+        <ul>
+          <li class="xfwxitem">
+            <a href="	{$ld.wxtzlink}" target="_blank">
+              <div class="xfimg flexrow">
+                <img src="__ADDON__/ldcms2024/images/xfico1.png" alt>
+              </div>
+              <div class="xfwx">
+                <img src="{$ld.wechat2|cdnurl}" alt="咨询微信客服">
+                <p class="xfwxdesc">咨询微信客服</p>
+              </div>
+            </a>
+          </li>
+          <li class="xftelitem">
+            <div class="xfimg flexrow">
+              <img src="__ADDON__/ldcms2024/images/xfico2.png" alt>
+            </div>
+            <div class="xfwx xftel">
+              <p>{$ld.tel}</p>
+              <span class="xfteldesc">立即获取方案或咨询</span>
+            </div>
+          </li>
+          <li class="xftopitem">
+            <div class="xfimg flexrow" id="goToTop">
+              <img src="__ADDON__/ldcms2024/images/xfico3.png" alt>
+              <p>top</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>

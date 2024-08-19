@@ -1,0 +1,30 @@
+[05-Aug-2024 19:53:03 PRC] PHP Fatal error:  Uncaught think\exception\ErrorException: strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated in /home3/muyanewc/lucker_move/thinkphp/library/think/debug/Html.php:50
+Stack trace:
+#0 [internal function]: think\Error::appError(8192, 'strpos(): Passi...', '/home3/muyanewc...', 50)
+#1 /home3/muyanewc/lucker_move/thinkphp/library/think/debug/Html.php(50): strpos(NULL, 'application/jso...')
+#2 /home3/muyanewc/lucker_move/thinkphp/library/think/Debug.php(239): think\debug\Html->output(Object(think\Response), Array)
+#3 /home3/muyanewc/lucker_move/thinkphp/library/think/Response.php(98): think\Debug::inject(Object(think\Response), '<!DOCTYPE html>...')
+#4 /home3/muyanewc/lucker_move/thinkphp/library/think/Error.php(52): think\Response->send()
+#5 [internal function]: think\Error::appException(Object(think\exception\ErrorException))
+#6 {main}
+  thrown in /home3/muyanewc/lucker_move/thinkphp/library/think/debug/Html.php on line 50
+[05-Aug-2024 19:59:17 PRC] PHP Fatal error:  Uncaught think\exception\ErrorException: strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated in /home3/muyanewc/lucker_move/thinkphp/library/think/debug/Html.php:50
+Stack trace:
+#0 [internal function]: think\Error::appError(8192, 'strpos(): Passi...', '/home3/muyanewc...', 50)
+#1 /home3/muyanewc/lucker_move/thinkphp/library/think/debug/Html.php(50): strpos(NULL, 'application/jso...')
+#2 /home3/muyanewc/lucker_move/thinkphp/library/think/Debug.php(239): think\debug\Html->output(Object(think\Response), Array)
+#3 /home3/muyanewc/lucker_move/thinkphp/library/think/Response.php(98): think\Debug::inject(Object(think\Response), '<!DOCTYPE html>...')
+#4 /home3/muyanewc/lucker_move/thinkphp/library/think/Error.php(52): think\Response->send()
+#5 [internal function]: think\Error::appException(Object(think\exception\ErrorException))
+#6 {main}
+  thrown in /home3/muyanewc/lucker_move/thinkphp/library/think/debug/Html.php on line 50
+[15-Aug-2024 06:17:47 PRC] PHP Fatal error:  Uncaught think\exception\ErrorException: strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated in /home3/muyanewc/lucker_move/thinkphp/library/think/debug/Html.php:50
+Stack trace:
+#0 [internal function]: think\Error::appError(8192, 'strpos(): Passi...', '/home3/muyanewc...', 50)
+#1 /home3/muyanewc/lucker_move/thinkphp/library/think/debug/Html.php(50): strpos(NULL, 'application/jso...')
+#2 /home3/muyanewc/lucker_move/thinkphp/library/think/Debug.php(239): think\debug\Html->output(Object(think\Response), Array)
+#3 /home3/muyanewc/lucker_move/thinkphp/library/think/Response.php(98): think\Debug::inject(Object(think\Response), '<!DOCTYPE html>...')
+#4 /home3/muyanewc/lucker_move/thinkphp/library/think/Error.php(52): think\Response->send()
+#5 [internal function]: think\Error::appException(Object(think\exception\ErrorException))
+#6 {main}
+  thrown in /home3/muyanewc/lucker_move/thinkphp/library/think/debug/Html.php on line 50

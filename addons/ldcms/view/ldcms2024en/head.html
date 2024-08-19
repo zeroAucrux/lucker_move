@@ -1,0 +1,171 @@
+ <div class="top hidden-xs">
+      <div class="topitem ">
+        <div class="con1400">
+          <div class="head flexrow">
+            <div class="logo">
+              <a class="flexrow" href="{:addon_url('ldcms/index/index')}">
+                <img src="{$ld.logo1|cdnurl}" alt="{$ld.compony}">
+              </a>
+            </div>
+            <div class="head_r flexrow">
+              <div class="nav">
+                <ul class="flexrow">
+                  <li class="{if $topid==$item['id']} active {/if}">
+                    <a href="{:addon_url('ldcms/index/index')}">Home</a>
+                  </li>
+                  {ld:nav}
+                  <li class="{if $topid==$item['id']} active {/if}">
+                    <a href="{$item.url}" title="{$item.name}">{$item.name}</a>
+                    {if $item['child']>0}
+                    <div class="ernav">
+                      <div class="con1400">
+                        <div class="ernavitem flexrow">
+                          <div class="ernav_l">
+                            <h3>
+                              {$item.ename}<i>/</i><span>{$item.name}</span>
+                            </h3>
+                            <p>{$item.des1}</p>
+                            <ul class="ernavlink flexrow">
+                              {ld:nav pid="$item['id']" alias="nav2"}
+                              <li>
+                                <a href="{$nav2.url}"
+                                  title="{$nav2.name}">{$nav2.name}</a>
+                              </li>
+                              {/ld:nav}
+                            </ul>
+                          </div>
+                          <div class="ernav_r">
+                            <img src="{$item.image}" alt="{$item.name}">
+                            <p>{$item.des2}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/if}
+                  </li>
+                  {/ld:nav}
+                </ul>
+              </div>
+              <div class="top_r flexrow">
+                <div class="top_lang flexrow">
+                  <img src="__ADDON__/ldcms2024/images/langico.png" alt>
+                  <div class="langitem">
+                    {foreach $ld.langsurl as $key=>$item}
+                    <a class="flexrow"
+                      href="{$item.url}">
+                      <img src="__ADDON__/ldcms2024/images/{$key}.png" alt="{$item.title}">
+                      <span>{$item.title}</span>
+                    </a>
+                    {/foreach}
+                  </div>
+                </div>
+                <div class="top_search">
+                  <img class="top_searchico" src="__ADDON__/ldcms2024/images/searico.png"
+                    alt>
+                  <div class="searchitem">
+                    <div class="con1400">
+                      <form class="searchform flexrow" method="get"
+                        action="{:addon_url('ldcms/search/index')}">
+                        <input type="text" name="search" placeholder="Please enter keywords">
+                        <input  name="cid" type="hidden" value="128,144,147,203,200,197">
+                        <button type="submit">search</button>
+                        <div class="searchclose">
+                          <img src="__ADDON__/ldcms2024/images/search_close.png" alt>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="waptop hidden-sm hidden-md hidden-lg">
+      <div class="waptop_item">
+        <div class="con1400">
+          <div class="waptopitem flexrow">
+            <div class="waptop_l">
+              <a class="flexrow" href="{:addon_url('ldcms/index/index')}">
+                <img src="{$ld.logo1|cdnurl}" alt="{$ld.compony}">
+              </a>
+            </div>
+            <div class="waptop_r flexrow">
+              <div class="waptop_lang flexrow">
+                <p class="waptop_langa"  >CN</p>
+                <div class="langitem">
+                  {foreach $ld.langsurl as $key=>$item}
+                  <a class="flexrow"
+                    href="{$item.url}">
+                    <img src="__ADDON__/ldcms2024/images/{$key}.png" alt="{$item.title}">
+                    <span>{$item.title}</span>
+                  </a>
+                  {/foreach}
+                </div>
+              </div>
+              <div class="waptop_rs">
+                <img src="__ADDON__/ldcms2024/images/searchico.png" alt>
+              </div>
+              <div class="waptop_rnav">
+                <img src="__ADDON__/ldcms2024/images/wapnavico.png" alt>
+              </div>
+            </div>
+            <div class="wapnav">
+              <div class="wapnavitem">
+                <div class="con1400">
+                  <div class="wapnavtop flexrow">
+                    <div class="wapnavt_l">
+                      <a class="flexrow"
+                        href="{:addon_url('ldcms/index/index')}">
+                        <img src="{$ld.logo1|cdnurl}" alt="{$ld.compony}">
+                      </a>
+                    </div>
+                    <div class="wapnavt_r">
+                      <img src="__ADDON__/ldcms2024/images/search_close.png" alt>
+                    </div>
+                  </div>
+                  <div class="wapnavbot">
+                    <ul>
+                      <li>
+                        <a href="{:addon_url('ldcms/index/index')}">Home</a>
+                      </li>
+                      {ld:nav}
+                      <li class="flexrow">
+                        <a href="{$item.url}">{$item.name}</a>
+                        {if $item['child']>0}
+                        <img class="wapnav_ico"
+                          src="__ADDON__/ldcms2024/images/jiantblue.png" alt>
+                        <div class="wapernav">
+                          {ld:nav pid="$item['id']" alias="nav2"}
+                          <a href="{$nav2.url}"
+                            title="{$nav2.name}">{$nav2.name}</a>
+                          {/ld:nav}
+                        </div>
+                        {/if}
+                      </li>
+                      {/ld:nav}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="wapsearch">
+              <div class="wapsea_item flexrow">
+                <form class="flexrow" method="get"
+                  action="{:addon_url('ldcms/search/index')}">
+                  <input type="text" name="search" id placeholder="Please enter keywords">
+                  <input  name="cid" type="hidden" value="128,144,147,203,200,197">
+                  <button type="submit">
+                    <img src="__ADDON__/ldcms2024/images/searchico.png" alt>
+                  </button>
+                  <div class="wapsea_close">
+                    <img src="__ADDON__/ldcms2024/images/search_close.png" alt>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

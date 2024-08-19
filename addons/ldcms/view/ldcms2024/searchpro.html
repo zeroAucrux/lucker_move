@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {include file="common" /}
+  </head>
+
+  <body>
+    <!-- top -->
+    {include file="head" /}
+    <!-- top end -->
+
+    <!-- banner -->
+    <div class="banner">
+      <div class="neibanner">
+        <img src="/assets/addons/ldcms/images/banner.jpg" alt="产品检索">
+        <div class="neibannerdesc flexrow">
+          <h2>产品检索</h2>
+        </div>
+      </div>
+    </div>
+    <!-- banner end -->
+
+    <!-- 主体 -->
+    <section class="neimain">
+      <div class="prolistpage">
+        <div class="con1400">
+          <div class="prolist_item flexrow">
+            <div class="prolist_l">
+              <div class="prolist_ltop">
+                <form class="flexrow"
+                  action="{:addon_url('ldcms/search/index')}" method="get">
+                  <button type="submit">
+                    <img src="__ADDON__/ldcms2024/images/searchico.png" alt>
+                  </button>
+                  <input type="text" name="search" id>
+                  <input name="cid" type="hidden" value="144">
+                  <input  name="mid" type="hidden" value="6">
+                  <input name="searchtpl" type="hidden" value="searchpro.html">
+                </form>
+              </div>
+              <div class="prolist_form">
+                  <!-- <div class="prolist_mid">
+                    <h4>筛选</h4>
+                    <a class="flexrow" href="javascript:;">
+                      <img src="__ADDON__/ldcms2024/images/proqc.png" alt>
+                      <span>清除</span>
+                    </a>
+                  </div> -->
+                  {ld:filter mid="6" title_text="全部"} 
+                  <div class="prolist_bot">
+                    <div class="prol_sxnav flexrow">
+                      <div class="prol_sxnav_l flexrow">
+                        <!-- <input type="checkbox" name id="procpcb"> -->
+                        <label for="procpcb"><h3><a href="{$item.url}" title="{$item.title}">{$item.title}</a></h3></label>
+                      </div>
+                      <div class="prol_sxnav_r">
+                        <img src="__ADDON__/ldcms2024/images/arrow_right2.png" alt>
+                      </div>
+                      <div class="prol_ernav prol_ernav1">
+                        <ul>
+                          {volist name="$item.content" id="li"}
+                          <li class="flexrow">
+                            <div class="prol_sxnav_l flexrow">
+                              <input type="checkbox" name id="cpxx{$i}" {$li.active?'checked':''}>
+                              <label for="cpxx{$i}"><h4><a href="{$li.url}">{$li.title}</a></h4></label>
+                            </div>
+                            <div class="prol_ernav_r">
+                              <!-- <p>6</p> -->
+                            </div>
+                          </li>
+                          {/volist}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  {/ld:filter}
+              </div>
+              <script>
+                  $(document).ready(function(){
+                    $('.prol_sxnav_r').click(function(){
+                      $(this).next('.prol_ernav').slideToggle();
+                    });
+                    // 筛选清除
+                    $('.prolist_mid a').click(function(){
+                      $(".prolist_bot input").attr("checked",false);
+                    });
+
+                  })
+                </script>
+            </div>
+            <div class="prolist_r">
+              <div class="prolist_list container">
+                <ul class="row">
+                  {ld:list limit='12' ext='content' page='true'}
+                  <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <a href="{$item.url}" title="{$item.title}">
+                      <div class="prolist_item_img">
+                        <img src="{$item.image}" alt="{$item.title}">
+                      </div>
+                      <div class="prolist_item_text">
+                        <h3>{$item.title|ld_str_cut=15}</h3>
+                        <p>{$item.seo_description|ld_str_cut=30}</p>
+                      </div>
+                    </a>
+                  </li>
+                  {/ld:list}
+                </ul>
+              </div>
+              <div class="newspage">
+                {$pages}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 主体 end -->
+
+    <!-- 底部表单 -->
+    {include file="footmess" /}
+    <!-- 底部表单 end -->
+
+    <!-- 底部导航 -->
+    {include file="foot" /}
+    <!-- 底部导航 end -->
+
+    <!-- 公用js -->
+    {include file="footjs" /}
+
+  </body>
+
+</html>

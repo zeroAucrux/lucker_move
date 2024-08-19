@@ -1,0 +1,56 @@
+{extend name="base" /}
+{block name="main"}
+<link href="{ld:src src='fxg/css/contact.css?'}" rel="stylesheet" />
+<link href="{ld:src src='fxg/css/case.css?'}" rel="stylesheet" />
+<div class="hero_area jiuan-top">
+    <div class="hero_bg_box">
+        <img src="__ADDON__/fxg/images/hero-bg.jpg" alt="generator" />
+    </div>
+</div>
+
+<div class="service-banner case-bg ">
+    <div class="container py-5">
+        <h1 class="display-4 text-white mb-3 animated slideInDown">
+            {$category.name}
+        </h1>
+        <p class="sub-title-cont text-white">{$category.subname}</p>
+    </div>
+</div>
+
+<div class="container Wauto">
+
+    <div class="main w1200">
+        <div class="article w1">
+            <div class="archive-top text-center py-5">
+                <h6 class="service-title">Our Case</h6>
+                <div class="archive-description service-test">
+                    <p>{$category.seo_description}</p>
+                </div>
+            </div>
+
+            <div class="row g-4 portfolio-container">
+                {ld:list }
+                <div data-id="{$item.id}" class="col-lg-4 col-md-6 portfolio-item">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="{$item.image}"
+                        data-src="{$item.image}" alt="{$item.title}">
+                        <div class="portfolio-btn">
+                            <!-- <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="img/img-600x400-6.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a> -->
+                            <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="{$item.url}"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <p class="text-primary mb-0 case-list-title"><a href="{$item.url}">{$item.title}</a></p>
+                        <hr class="text-primary w-25" style="margin:1rem 0;height: 1px;border-top-color:#379dae !important">
+                        <h5 class="lh-base">{$item.description}</h5>
+                    </div>
+                </div>
+                {/ld:list}
+                
+            </div>
+        </div>
+        <div class="py-5 mb-4"></div>
+    </div>
+</div>
+
+{/block}

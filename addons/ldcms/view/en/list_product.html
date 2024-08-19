@@ -1,0 +1,80 @@
+{extend name="base" /}
+{block name="main"}
+<link href="{ld:src src='fxg/css/project.css?'}" rel="stylesheet" />
+<div class="hero_area jiuan-top">
+    <div class="hero_bg_box">
+        <img src="__ADDON__/fxg/images/hero-bg.jpg" alt="generator" />
+    </div>
+</div>
+
+<div class="container Wauto">
+    
+    <div class="main w1200">
+        <div class="row project-banner">
+            <div class="col-md-6">
+                <h1 class="p-b-title">Jiuan generator<br />Products</h1>
+                <p class="p-b-text">{$category.seo_title}</p>
+                <p class="p-b-text">{$category.seo_description}</p>
+            </div>
+            <div class="col-md-6">
+                <img src="__ADDON__/fxg/images/project-img-top.jpg" alt="generator" />
+            </div>
+        </div>
+        <div class="article w1">
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-xs-12 page-sidebar">
+                    <aside>
+                        {ld:filter mid="$category['mid']" title_text="All"}
+                        <div class="widget categories">
+                            <div class="widget-title"> {:__($item.title)}:</div>
+                            <ul class="categories-list">
+                                {volist name="$item.content" id="li" title_text="All"}
+                                <li class="{$li.active?'active':''}"><a href="{$li.url}"><i class="fa fa-cube"></i>{:__($li.title)}</a></li>
+                                {/volist}
+                            </ul>
+                        </div>
+                        {/ld:filter}
+                
+                    </aside>
+                </div>
+
+                <div class="col-lg-9 col-md-12 col-xs-12 page-content">
+                    <div class="adds-wrapper">
+                        <div class="row">
+                            {ld:list limit='12' ext='content' page='true'}
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                <div class="featured-box">
+                                    <figure>
+                                        <div class="icon">
+                                            <i class="fa hot">hot</i>
+                                        </div>
+                                        <a href="{$item.url}"><img class="img-fluid" src="{$item.image}" alt="{$item.title}" /></a>
+                                    </figure>
+                                    <div class="feature-content">
+                                        <div class="tg-product">
+                                            <a href="{$item.url}" title="{$item.title}">
+                                                {$item.tag}
+                                                </a>
+                                        </div>
+                                        <h4>
+                                            <a href="{$item.url}" title="{$item.title}">
+                                                {$item.title|ld_str_cut=15}
+                                                </a>
+                                        </h4>
+                                        <p>{$item.seo_description|ld_str_cut=28}</p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            {/ld:list}
+                        </div>
+                    </div>
+                    <div class="pagination-bar">
+                        {$pages}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

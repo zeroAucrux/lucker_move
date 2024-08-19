@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'Name'            => '名称',
+    'Ename'           => '英文名称',
+    'Pid'             => '上级栏目',
+    'Mid'             => '模型',
+    'Urlname'         => 'URL名称',
+    'Template_list'        => '列表页模版',
+    'Template_detail'      => '详情页模版',
+    'Outlink'         => '跳转链接',
+    'Image'           => '栏目缩略图',
+    'Seo_title'       => 'SEO标题',
+    'Seo_keywords'    => 'SEO关键词',
+    'Seo_description' => 'SEO描述',
+    'Sort'            => '排序',
+    'Lang'            => '语言',
+    'Is_target'       => '是否打开新窗口',
+    'Type'            => '类型',
+    'Gid'             => '浏览权限',
+    'Is_nav'          => '导航显示',
+    'Status'          => '状态',
+    'Create_time'     => '创建时间',
+    'Update_time'     => '更新时间',
+    'Toggle all'                                 => '显示全部',
+    'Toggle menu visible'                        => '点击切换菜单显示',
+    'Toggle sub menu'                            => '点击切换子菜单显示',
+];

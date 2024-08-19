@@ -1,0 +1,17 @@
+   <div class="newsde_lbot flexrow">
+              {ld:prev}
+              <div class="newdelb_l">
+                <p>PREV：<a href="{$item.url}" title="{$item.title}"> {$item.title} </a></p>
+              </div>{else /} <div class="newdelb_l"><p>PREV：Nothing</p></div>
+              {/ld:prev}
+              {ld:sort cid="$category['id']"}
+              <div class="newdelb_m">
+                <a href="{$item.url}">Return  List</a>
+              </div>
+              {/ld:sort}
+              {ld:next}
+              <div class="newdelb_l newdelb_r">
+                <p>NEXT：<a href="{$item.url}" title="{$item.title}"> {$item.title} </a></p>
+              </div>{else /} <div class="newdelb_l newdelb_r"><p>NEXT：Nothing</p></div>
+              {/ld:next}
+            </div>

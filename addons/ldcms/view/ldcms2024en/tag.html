@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {include file="common" /}
+  </head>
+
+  <body>
+    <!-- top -->
+    {include file="head" /}
+    <!-- top end -->
+
+    <!-- banner -->
+    <div class="banner">
+      <div class="banner">
+        <div class="neibanner">
+          <img src="__ADDON__/ldcms2024/images/banner.jpg" alt="Tag List">
+          <div class="neibannerdesc flexrow">
+            <h2>Tag List</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- banner end -->
+
+    <!-- 内页导航 -->
+    <section class="neinav">
+      <div class="con1400">
+        <div class="neinav_item flexrow">
+          <ul class="flexrow">
+            {ld:nav }
+            <li class="{if $category['id']==$item['id']} active {/if}">
+              <a href="{$item.url}" title="{$item.name}">{$item.name}</a>
+            </li>
+            {/ld:nav}
+          </ul>
+          <div class="casetop_r">
+            <p>
+              <a href="{:addon_url('ldcms/index/index')}">Home</a>  
+              {ld:position cid="$category['id']"}
+              >
+              <a href="{$item.url}">{$item.name}</a> 
+              {/ld:position}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 内页导航 end -->
+
+    <!-- 主体 -->
+    <section class="neimain">
+      <div class="newslistp">
+        <div class="con1400">
+         
+          <div class="newslistp_bot searchpage container">
+            <ul class="row">
+              {ld:list cid='0' tags='$tag' }
+              <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12 animate"
+              data-animate="zoomIn" data-duration="1.5s" data-delay="0.{$i}s">
+                <a href="{$item.url}" title="{$item.title}">
+                  <div class="newslistp_botimg">
+                    <img src="{$item.image}" alt="{$item.title}">
+                  </div>
+                  <div class="newslistp_botdes flexrow">
+                    <h3>{$item.title|ld_str_cut=30}</h3>
+                    <p>MORE ></p>
+                  </div>
+                </a>
+              </li>
+              {/ld:list}
+            </ul>
+          </div>
+          <div class="newspage">
+            {$pages} 
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 主体 end -->
+
+    <!-- 底部表单 -->
+    {include file="footmess" /}
+    <!-- 底部表单 end -->
+
+    <!-- 底部导航 -->
+    {include file="foot" /}
+    <!-- 底部导航 end -->
+
+    <!-- 公用js -->
+    {include file="footjs" /}
+
+  </body>
+
+</html>

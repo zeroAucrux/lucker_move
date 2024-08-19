@@ -1,0 +1,47 @@
+{extend name="base" /}
+{block name="main"}
+<div class="container">
+    <div class="main w1200">
+        <div class="article w1">
+            <div class="article-box">
+                <header class="article-top">
+                    <h1 class="article-tit">{$category.name}</h1>
+                </header>
+                <article class="article-main">
+                    <form action="{:addon_url('ldcms/diyform/message2')}" method="post" id="saypl">
+                        <ul>
+                            <li>
+                                <input type="text" name="uname" class="text" value=""
+                                    placeholder="{:__('uname')}" size="28" tabindex="1" />
+                            </li>
+                            <li>
+                                <input type="text" name="email" class="text" value=""
+                                    placeholder="{:__('Email')}" size="28" tabindex="1" />
+                            </li>
+                            <li style="position: relative;">
+                                <input type="text" name="captcha" class="text" value="" placeholder="{:__('captcha')}" size="28"
+                                    tabindex="2" />
+                                <img src="{:captcha_src()}" style="position: absolute;right:0;top:0;margin: 3px;"
+                                    width="100"
+                                    height="31"
+                                    onClick="this.src = '{:captcha_src()}?r=' + Math.random();"/>
+                            </li>
+                        </ul>
+                        <p class="npt">
+                            <textarea name="remark" id="saytext" class="text" cols="50" rows="4" tabindex="5"></textarea>
+                        </p>
+                        <p>
+                            {:token()}
+                            <input type="submit" tabindex="6" value="{:__('Submit')}" class="button" />
+                        </p>
+                    </form>
+
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.header').removeClass('opaque').addClass('noOpaque')
+</script>
+{/block}

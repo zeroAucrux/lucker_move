@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!-- Site Metas -->
+   <meta name="keywords" content="{$ld.seo_keywords}" />
+  <meta name="description" content="{$ld.seo_description} " />
+  <meta name="author" content="jiuan generator" />
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+  <title>{$ld.sitetitle}</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{ld:src src='fxg/css/bootstrap.css'}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="{ld:src src='fxg/css/font-awesome.min.css'}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{ld:src src='fxg/css/style.css'}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{ld:src src='fxg/css/responsive.css'}" rel="stylesheet" />
+</head>
+
+<body>
+  {include file="nav" /}
+
+  {block name="main"} {/block}
+
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="info_top">
+        <div class="row">
+          <div class="col-md-3 ">
+            <a class="navbar-brand" href="http://www.jiuangenerator.com">
+              Jiuan 
+            </a>
+          </div>
+          <div class="col-md-5 ">
+            <div class="info_contact">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="mailto:{$ld.email}">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  {$ld.email}
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="social_box">
+              <a href="http://www.jiuangenerator.com">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="http://www.jiuangenerator.com">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="http://www.jiuangenerator.com">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="http://www.jiuangenerator.com">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="info_bottom">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="info_detail">
+              <h5>
+                generator
+              </h5>
+              <p>
+                We are professional in manufacture and export diesel generator.
+                Diesel Generator, Marine generator,welding generator, water pump.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="info_form">
+              <h5>
+                NEWSLETTER
+              </h5>
+              <form action="{:addon_url('ldcms/diyform/footer')}" method="post">
+                <input type="text" name="subemail" placeholder="{:__('Email')}" />
+                {:token()}
+                <button type="submit">
+                  {:__('Submit')}
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="info_detail">
+              <h5>
+                Services
+              </h5>
+              <p>
+                We established in year 2008. We have 12 years experience in generator field.
+                Professional after-sales service in 24hours.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <div class="">
+              <h5>
+                Useful links
+              </h5>
+              <ul class="info_menu">
+                {ld:nav }
+                <li>
+                    <a href="{$item.url}">{$item.name}</a>
+                </li>
+                {/ld:nav}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; {:date('Y')} All Rights Reserved By
+      <a href="{:addon_url('ldcms/index/index')}">{$ld.copyright}</a>&nbsp;
+      <a href="{:addon_url('ldcms/sitemap/index',[],false)}">Sitemap</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="{ld:src src='fxg/js/jquery-3.4.1.min.js'}"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <!-- bootstrap js -->
+     <script src="{ld:src src='fxg/js/bootstrap.js'}"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <!-- custom js -->
+  <script src="{ld:src src='fxg/js/custom.js'}"></script>
+
+</body>
+
+</html>

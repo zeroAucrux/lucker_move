@@ -1,0 +1,122 @@
+{extend name="base" /} {block name="main"}
+<link rel="stylesheet" type="text/css" href="{ld:src src='fxg/css/owl.carousel.css?'}" />
+<link href="{ld:src src='fxg/css/project.css?'}" rel="stylesheet" />
+
+<div class="hero_area jiuan-top">
+    <div class="hero_bg_box">
+        <img src="__ADDON__/fxg/images/hero-bg.jpg" alt="generator" />
+    </div>
+</div>
+<div class="container layout_padding">
+    <div class="main w1200">
+        <p class="web-position">
+            {:__('Position')}：<a href="{:addon_url('ldcms/index/index')}"
+                >{:__('Home')}</a
+            >
+            {ld:position cid="$category['id']"} /
+            <a href="{$item.url}">{$item.name}</a>
+            {/ld:position}
+        </p>
+        <div class="article w1">
+            <div class="product-info row">
+                <div class="col-lg-5 col-md-12 col-xs-12">
+                    <div class="details-box ads-details-wrapper">
+                        <div id="owl-demo" class="owl-carousel owl-theme">
+                            {foreach :explode(',',$content.pics) as $pic}
+                            <div class="item">
+                                <div class="product-img">
+                                    <img class="img-fluid" src="{$pic}" alt="{$content.title}">
+                                </div>
+                            </div>
+                            {/foreach}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-md-12 col-xs-12">
+                    <div class="details-box">
+                        <div class="ads-details-info">
+                            <h2>{$content.title}</h2>
+                            <div class="article-content mb-2">
+                                {$content.content}
+                            </div>
+                            <div class="details-meta">
+                                <span><i class="fa fa-clock-o"></i>{$content.show_time}</span>
+                                <span><i class="fa fa-eye"></i>{$content.visits}</span>
+                            </div>
+                        </div>
+                        <!--
+                        <ul class="advertisement mb-4">
+                            <li>
+                                <p>
+                                    <strong>{:__('brand')}:</strong>
+                                    <a href="#">{:__($content.brand)}</a>
+                                </p>
+                            </li>
+                        </ul>
+                        -->
+                        <div class="ads-btn mb-4">
+                            <a href="mailto:{$ld.email}" class="btn btn-common btn-reply">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                Email
+                              </a>
+                            <a href="#" class="btn btn-common"><i class="fa fa-phone" aria-hidden="true"></i>{$ld.tel}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-5 article-box description-info">
+                <article class="article-main description">
+                    {$content.protab1}
+                </article>
+            </div>
+            <div class="prev">
+                {:__('Previous')}： {ld:prev}
+                <a href="{$item.url}"> {$item.title} </a> {else /} {:__('No
+                more')} {/ld:prev}
+            </div>
+            <div class="next">
+                {:__('Next')}： {ld:next}<a href="{$item.url}">
+                    {$item.title}
+                </a>
+                {else /} {:__('No more')}{/ld:next}
+            </div>
+        </div>
+
+        <h4 class="mt-5 other-title">其他产品</h4>
+        <div class="row pro-lists">
+            {ld:list limit='3' ext='content' page='true'}
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="featured-box">
+                    <figure>
+                        <div class="icon">
+                            <i class="fa hot">hot</i>
+                        </div>
+                        <a href="{$item.url}"><img class="img-fluid" src="{$item.image}" alt="{$item.title}" /></a>
+                    </figure>
+                    <div class="feature-content">
+                        <div class="tg-product">
+                            <a href="{$item.url}" title="{$item.title}">
+                                {$item.tag}
+                                </a>
+                        </div>
+                        <h4>
+                            <a href="{$item.url}" title="{$item.title}">
+                                {$item.title|ld_str_cut=15}
+                                </a>
+                        </h4>
+                        <p>{$item.seo_description|ld_str_cut=40}</p>
+                        
+                    </div>
+                </div>
+            </div>
+            {/ld:list}
+        </div>
+    </div>
+</div>
+<script src="{ld:src src='fxg/js/jquery-3.4.1.min.js'}"></script>
+<script src="{ld:src src='fxg/js/owl.carousel.min.js'}"></script>
+<script src="{ld:src src='fxg/js/main.js'}"></script>
+
+{/block}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {include file="common" /}
+  </head>
+
+  <body>
+    <!-- top -->
+    {include file="head" /}
+    <!-- top end -->
+
+    <!-- banner -->
+    <div class="banner">
+      {include file="neibanner" /}
+    </div>
+    <!-- banner end -->
+
+    <!-- 内页导航 -->
+    <section class="neinav">
+      <div class="con1400">
+        {include file="neiernav" /}
+      </div>
+    </section>
+    <!-- 内页导航 end -->
+
+    <!-- 主体 -->
+    <section class="neimain">
+      <div class="prodetail">
+
+        <div class="procontent">
+          <div class="procontent_1">
+            <div class="con1400">
+              <div class="procon1_item flexrow">
+                <div class="procontent1_l">
+                  <div class="swiper-container gallery-top">
+                    <div class="swiper-wrapper">
+                      {foreach :explode(',',$content.pics) as $pic}
+                      <div class="swiper-slide">
+                        <img src="{$pic}" alt="{$content.title}">
+                      </div>
+                      {/foreach}
+                    </div>
+                  </div>
+                  <div class="swiper-container gallery-thumbs">
+                    <div class="swiper-wrapper">
+                      {foreach :explode(',',$content.pics) as $pic}
+                      <div class="swiper-slide">
+                        <img src="{$pic}" alt="{$content.title}">
+                      </div>
+                      {/foreach}
+                    </div>
+                  </div>
+
+                  <script>
+                    var galleryThumbs = new Swiper('.gallery-thumbs', {
+                      spaceBetween: 10,
+                      slidesPerView: 4,
+                      // loop: true,
+                      freeMode: true,
+                      autoplay:true,
+                      loopedSlides: 5, //looped slides should be the same
+                      watchSlidesVisibility: true,
+                      watchSlidesProgress: true,
+                    });
+                    var galleryTop = new Swiper('.gallery-top', {
+                      spaceBetween: 10,
+                      // loop:true,
+                      autoplay:true,
+                      loopedSlides: 5, //looped slides should be the same
+                      navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                      },
+                      thumbs: {
+                        swiper: galleryThumbs,
+                      },
+                    });
+                  </script>
+                </div>
+                <div class="procontent1_r">
+                  <div class="procont_ltop">
+                    <h2>{$content.title}</h2>
+                    <p>{$content.subtitle}</p>
+                  </div>
+                  <div class="procont_lbot">
+                    <p>{$content.seo_description}</p>
+                  </div>
+                  <div class="procontent_zx">
+                    <a class="flexrow" href>
+                      <img src="__ADDON__/ldcms2024/images/zxzx.png" alt>
+                      <span>Consultation</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="procontent_2">
+            <div class="procon2_top">
+              <ul class="flexrow">
+                <li><a href="#procpxq">Details</a></li>
+                <!-- <li><a href="#projscs">Parameter</a></li> -->
+                <li><a href="#proxgtj">Recommendations</a></li>
+              </ul>
+            </div>
+            <div class="con1400">
+              <div class="prodecon_item" id="procpxq">
+                <div class="prodecon_title">
+                  <h3>Details</h3>
+                </div>
+                <div class="prodecon_itemcon">
+                  <p>
+                    {$content.content}
+                  </p>
+                </div>
+              </div>
+              <!-- <div class="prodecon_item" id="projscs">
+                <div class="prodecon_title">
+                  <h3>Parameter</h3>
+                </div>
+                <div class="prodecon_itemcon pdp-table">
+                  <p>
+                    {$content.cpcs}
+                  </p>
+                </div>
+              </div> -->
+              <div class="prodecon_item" id="proxgtj">
+                <div class="prodecon_title">
+                  <h3>Recommendations</h3>
+                </div>
+                <div class="proxgtjlist">
+                  <div class="swiper-container proxgtjswiper">
+                    <div class="swiper-wrapper">
+                      {ld:list limit='8' ext="subtitle"}
+                      <div class="swiper-slide">
+                        <a href="{$item.url}" title="{$item.title}">
+                          <div class="proxgtj_liimg">
+                            <img src="{$item.image}" />
+                          </div>
+                          <div class="proxgtj_lides flexrow">
+                            <h3>{$item.title}</h3>
+                            <p>{$item.subtitle}</p>
+                          </div>
+                        </a>
+                      </div>
+                      {/ld:list}
+                    </div>
+                  </div>
+
+                  <!-- Add Pagination -->
+                  <div class="swiper-pagination idxkh_spagination "></div>
+                  <script>
+                    var proxgtjswiper = new Swiper('.proxgtjswiper', {
+                      slidesPerView: 4,
+                      spaceBetween: 20,
+                      pagination: {
+                        el: '.idxkh_spagination',
+                        clickable: true,
+                      },
+                      breakpoints: { 
+                        320: {  //当屏幕宽度大于等于320
+                          slidesPerView: 1,
+                          spaceBetween: 10
+                        },
+                        768: {  //当屏幕宽度大于等于768 
+                          slidesPerView: 2,
+                          spaceBetween: 20
+                        },
+                        1280: {  //当屏幕宽度大于等于1280
+                          slidesPerView: 4,
+                          spaceBetween: 30
+                        }
+                      },
+
+                    });
+                  </script>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- 主体 end -->
+
+    <!-- 底部表单 -->
+    {include file="footmess" /}
+    <!-- 底部表单 end -->
+
+    <!-- 底部导航 -->
+    {include file="foot" /}
+    <!-- 底部导航 end -->
+
+    <!-- 公用js -->
+    {include file="footjs" /}
+
+  </body>
+
+</html>

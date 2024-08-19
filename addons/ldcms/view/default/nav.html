@@ -1,0 +1,39 @@
+<!-- header section strats -->
+<header class="header_section">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg custom_nav-container ">
+      <!-- <a class="navbar-brand " href="index.html"> Jiuan </a> -->
+      <a class="navbar-brand href="{:addon_url('ldcms/index/index')}" title="{$ld.sitetitle}">
+        <img class="navbar-logo" src="{$ld.logo1}" alt="{$ld.sitetitle}">
+      </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class=""> </span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav  ">
+          <li class="nav-item"><a class="nav-link" href="{:addon_url('ldcms/index/index')}">{:__('Home')}</a></li>
+          {ld:nav }
+          <li class="nav-item {if $topid==$item['id']} active {/if}">
+              <a class="nav-link" href="{$item.url}">{$item.name}</a>
+          </li>
+          {/ld:nav}
+          <div class="lang">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-language"></i> {$ld.langs[$ld.lg]}
+            </a>
+            <ul class="dropdown-menu" style="width: 90px;min-width: 90px">
+                {foreach $ld.langsurl as $key=>$item}
+                <li {if $ld.lg==$key} class="active" {/if}>
+                    <a href="{$item.url}">{$item.title}</a>
+                </li>
+                {/foreach}
+            </ul>
+          </div>
+        </ul>
+        
+      </div>
+
+    </nav>
+  </div>
+</header>
+<!-- end header section -->
